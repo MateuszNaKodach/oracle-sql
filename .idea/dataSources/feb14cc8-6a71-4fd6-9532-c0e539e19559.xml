@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##228135">
       <ObjectId>663</ObjectId>
-      <IntrospectionTimestamp>2017-10-27.01:12:20</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-10-27.01:36:11</IntrospectionTimestamp>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -667,7 +667,7 @@
     <table id="221" parent="2" name="BANDY">
       <ObjectId>298138</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="222" parent="2" name="FUNKCJE">
@@ -679,7 +679,7 @@
     <table id="223" parent="2" name="KOCURY">
       <ObjectId>298136</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="224" parent="2" name="WROGOWIE">
@@ -742,7 +742,7 @@
       <UnderlyingIndexName>BAN_TEREN_UQ</UnderlyingIndexName>
     </key>
     <foreign-key id="234" parent="221" name="BAND_SZEF_FK">
-      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <ColNames>SZEF_BANDY</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>KOCURY</RefTableName>
@@ -861,7 +861,7 @@ MIN_MYSZY</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <foreign-key id="256" parent="223" name="KOC_SZEF_FK">
-      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <ColNames>SZEF</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>KOCURY</RefTableName>
