@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##228135">
       <ObjectId>663</ObjectId>
-      <IntrospectionTimestamp>2017-10-27.01:07:44</IntrospectionTimestamp>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <IntrospectionTimestamp>2017-10-27.01:12:20</IntrospectionTimestamp>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -665,33 +665,33 @@
       <ObjectId>2147483638</ObjectId>
     </schema>
     <table id="221" parent="2" name="BANDY">
-      <ObjectId>297045</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ObjectId>298138</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="222" parent="2" name="FUNKCJE">
-      <ObjectId>297039</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298132</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="223" parent="2" name="KOCURY">
-      <ObjectId>297043</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ObjectId>298136</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="224" parent="2" name="WROGOWIE">
-      <ObjectId>297041</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298134</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="225" parent="2" name="WROGOWIE_KOCUROW">
-      <ObjectId>297048</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298141</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <column id="226" parent="221" name="NR_BANDY">
@@ -713,36 +713,36 @@
       <DataType>VARCHAR2(15)|0</DataType>
     </column>
     <index id="230" parent="221" name="BAND_PR">
-      <ObjectId>297046</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298139</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>NR_BANDY</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="231" parent="221" name="BAN_TEREN_UQ">
-      <ObjectId>297047</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298140</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>TEREN</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="232" parent="221" name="BAND_PR">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NR_BANDY</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>BAND_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <key id="233" parent="221" name="BAN_TEREN_UQ">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>TEREN</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>BAN_TEREN_UQ</UnderlyingIndexName>
     </key>
     <foreign-key id="234" parent="221" name="BAND_SZEF_FK">
-      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>SZEF_BANDY</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>KOCURY</RefTableName>
@@ -750,7 +750,7 @@
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <check id="235" parent="221" name="BAND_NAZWA_NN">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NAZWA</ColNames>
       <Predicate>&quot;NAZWA&quot; IS NOT NULL</Predicate>
     </check>
@@ -768,33 +768,33 @@
       <DataType>NUMBER(3)|0</DataType>
     </column>
     <index id="239" parent="222" name="FUN_PR">
-      <ObjectId>297040</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298133</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>FUNKCJA</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="240" parent="222" name="FUN_PR">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>FUNKCJA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>FUN_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <check id="241" parent="222" name="FUN_MINMYSZY_CH">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MIN_MYSZY</ColNames>
       <Predicate>min_myszy&gt;5</Predicate>
     </check>
     <check id="242" parent="222" name="FUN_MAXMYSZY_LOW_CH">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MAX_MYSZY
 MIN_MYSZY</ColNames>
       <Predicate>max_myszy&gt;min_myszy</Predicate>
     </check>
     <check id="243" parent="222" name="FUN_MAXMYSZY_HIGH_CH">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MAX_MYSZY</ColNames>
       <Predicate>max_myszy&lt;200</Predicate>
     </check>
@@ -838,22 +838,22 @@ MIN_MYSZY</ColNames>
       <DataType>NUMBER(2)|0</DataType>
     </column>
     <index id="253" parent="223" name="KOC_PR">
-      <ObjectId>297044</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298137</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>PSEUDO</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="254" parent="223" name="KOC_PR">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>KOC_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="255" parent="223" name="KOC_FUN_FK">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>FUNKCJA</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>FUNKCJE</RefTableName>
@@ -861,7 +861,7 @@ MIN_MYSZY</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <foreign-key id="256" parent="223" name="KOC_SZEF_FK">
-      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>SZEF</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>KOCURY</RefTableName>
@@ -869,7 +869,7 @@ MIN_MYSZY</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <foreign-key id="257" parent="223" name="KOC_BAND_FK">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NR_BANDY</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>BANDY</RefTableName>
@@ -877,14 +877,14 @@ MIN_MYSZY</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <check id="258" parent="223" name="KOC_IMIE_NN">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE</ColNames>
       <Predicate>&quot;IMIE&quot; IS NOT NULL</Predicate>
     </check>
     <check id="259" parent="223" name="KOC_PLEC_CH">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PLEC</ColNames>
-      <Predicate>plec IN (&apos;M&apos;,&apos;D&apos;)</Predicate>
+      <Predicate>plec IN (&apos;D&apos;,&apos;M&apos;)</Predicate>
     </check>
     <column id="260" parent="224" name="IMIE_WROGA">
       <Position>1</Position>
@@ -904,22 +904,22 @@ MIN_MYSZY</ColNames>
       <DataType>VARCHAR2(20)|0</DataType>
     </column>
     <index id="264" parent="224" name="WROG_PR">
-      <ObjectId>297042</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298135</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>IMIE_WROGA</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="265" parent="224" name="WROG_PR">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE_WROGA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>WROG_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <check id="266" parent="224" name="WROG_SW_CH">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>STOPIEN_WROGOSCI</ColNames>
       <Predicate>stopien_wrogosci BETWEEN 1 AND 10</Predicate>
     </check>
@@ -943,16 +943,16 @@ MIN_MYSZY</ColNames>
       <DataType>VARCHAR2(50)|0</DataType>
     </column>
     <index id="271" parent="225" name="WROGKOC_PK">
-      <ObjectId>297049</ObjectId>
-      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ObjectId>298142</ObjectId>
+      <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>PSEUDO
 IMIE_WROGA</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="272" parent="225" name="WROGKOC_PK">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO
 IMIE_WROGA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
@@ -960,7 +960,7 @@ IMIE_WROGA</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="273" parent="225" name="WROGKOC_PSEUD_FK">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>KOCURY</RefTableName>
@@ -968,7 +968,7 @@ IMIE_WROGA</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <foreign-key id="274" parent="225" name="WROGKOC_IMIE_FK">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE_WROGA</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
       <RefTableName>WROGOWIE</RefTableName>
@@ -976,7 +976,7 @@ IMIE_WROGA</ColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
     <check id="275" parent="225" name="WROG_DATA_NN">
-      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>DATA_INCYDENTU</ColNames>
       <Predicate>&quot;DATA_INCYDENTU&quot; IS NOT NULL</Predicate>
     </check>
