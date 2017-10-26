@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@156.17.130.125">
+  <database-model serializer="dbm" rdbms="ORACLE" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="C##228135">
+      <ObjectId>663</ObjectId>
+      <IntrospectionTimestamp>2017-10-27.01:07:44</IntrospectionTimestamp>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="PUBLIC">
+      <ObjectId>1</ObjectId>
+    </schema>
+    <schema id="4" parent="1" name="SYS">
+      <ObjectId>0</ObjectId>
+    </schema>
+    <schema id="5" parent="1" name="AUDSYS">
+      <ObjectId>7</ObjectId>
+    </schema>
+    <schema id="6" parent="1" name="SYSTEM">
+      <ObjectId>8</ObjectId>
+    </schema>
+    <schema id="7" parent="1" name="OUTLN">
+      <ObjectId>13</ObjectId>
+    </schema>
+    <schema id="8" parent="1" name="GSMADMIN_INTERNAL">
+      <ObjectId>21</ObjectId>
+    </schema>
+    <schema id="9" parent="1" name="GSMUSER">
+      <ObjectId>22</ObjectId>
+    </schema>
+    <schema id="10" parent="1" name="DIP">
+      <ObjectId>23</ObjectId>
+    </schema>
+    <schema id="11" parent="1" name="ORACLE_OCM">
+      <ObjectId>36</ObjectId>
+    </schema>
+    <schema id="12" parent="1" name="DBSNMP">
+      <ObjectId>48</ObjectId>
+    </schema>
+    <schema id="13" parent="1" name="APPQOSSYS">
+      <ObjectId>49</ObjectId>
+    </schema>
+    <schema id="14" parent="1" name="XDB">
+      <ObjectId>50</ObjectId>
+    </schema>
+    <schema id="15" parent="1" name="ANONYMOUS">
+      <ObjectId>51</ObjectId>
+    </schema>
+    <schema id="16" parent="1" name="GSMCATUSER">
+      <ObjectId>61</ObjectId>
+    </schema>
+    <schema id="17" parent="1" name="WMSYS">
+      <ObjectId>62</ObjectId>
+    </schema>
+    <schema id="18" parent="1" name="OJVMSYS">
+      <ObjectId>70</ObjectId>
+    </schema>
+    <schema id="19" parent="1" name="CTXSYS">
+      <ObjectId>73</ObjectId>
+    </schema>
+    <schema id="20" parent="1" name="ORDSYS">
+      <ObjectId>75</ObjectId>
+    </schema>
+    <schema id="21" parent="1" name="ORDDATA">
+      <ObjectId>76</ObjectId>
+    </schema>
+    <schema id="22" parent="1" name="ORDPLUGINS">
+      <ObjectId>77</ObjectId>
+    </schema>
+    <schema id="23" parent="1" name="SI_INFORMTN_SCHEMA">
+      <ObjectId>78</ObjectId>
+    </schema>
+    <schema id="24" parent="1" name="MDSYS">
+      <ObjectId>79</ObjectId>
+    </schema>
+    <schema id="25" parent="1" name="OLAPSYS">
+      <ObjectId>82</ObjectId>
+    </schema>
+    <schema id="26" parent="1" name="MDDATA">
+      <ObjectId>85</ObjectId>
+    </schema>
+    <schema id="27" parent="1" name="SPATIAL_WFS_ADMIN_USR">
+      <ObjectId>87</ObjectId>
+    </schema>
+    <schema id="28" parent="1" name="SPATIAL_CSW_ADMIN_USR">
+      <ObjectId>90</ObjectId>
+    </schema>
+    <schema id="29" parent="1" name="LBACSYS">
+      <ObjectId>92</ObjectId>
+    </schema>
+    <schema id="30" parent="1" name="FLOWS_FILES">
+      <ObjectId>94</ObjectId>
+    </schema>
+    <schema id="31" parent="1" name="APEX_PUBLIC_USER">
+      <ObjectId>95</ObjectId>
+    </schema>
+    <schema id="32" parent="1" name="APEX_040200">
+      <ObjectId>98</ObjectId>
+    </schema>
+    <schema id="33" parent="1" name="DVF">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="34" parent="1" name="ZSTASZAK">
+      <ObjectId>102</ObjectId>
+    </schema>
+    <schema id="35" parent="1" name="C##TEST">
+      <ObjectId>486</ObjectId>
+    </schema>
+    <schema id="36" parent="1" name="C##215238">
+      <ObjectId>487</ObjectId>
+    </schema>
+    <schema id="37" parent="1" name="C##224000">
+      <ObjectId>501</ObjectId>
+    </schema>
+    <schema id="38" parent="1" name="C##193684">
+      <ObjectId>518</ObjectId>
+    </schema>
+    <schema id="39" parent="1" name="C##223990">
+      <ObjectId>532</ObjectId>
+    </schema>
+    <schema id="40" parent="1" name="C##203368">
+      <ObjectId>535</ObjectId>
+    </schema>
+    <schema id="41" parent="1" name="C##217480A">
+      <ObjectId>550</ObjectId>
+    </schema>
+    <schema id="42" parent="1" name="C##203288">
+      <ObjectId>551</ObjectId>
+    </schema>
+    <schema id="43" parent="1" name="C##150452">
+      <ObjectId>552</ObjectId>
+    </schema>
+    <schema id="44" parent="1" name="C##178795A">
+      <ObjectId>553</ObjectId>
+    </schema>
+    <schema id="45" parent="1" name="C##212835">
+      <ObjectId>554</ObjectId>
+    </schema>
+    <schema id="46" parent="1" name="C##212716">
+      <ObjectId>555</ObjectId>
+    </schema>
+    <schema id="47" parent="1" name="C##231242">
+      <ObjectId>587</ObjectId>
+    </schema>
+    <schema id="48" parent="1" name="C##220926">
+      <ObjectId>588</ObjectId>
+    </schema>
+    <schema id="49" parent="1" name="C##160179">
+      <ObjectId>589</ObjectId>
+    </schema>
+    <schema id="50" parent="1" name="C##203257">
+      <ObjectId>590</ObjectId>
+    </schema>
+    <schema id="51" parent="1" name="C##197914">
+      <ObjectId>591</ObjectId>
+    </schema>
+    <schema id="52" parent="1" name="C##228047">
+      <ObjectId>592</ObjectId>
+    </schema>
+    <schema id="53" parent="1" name="C##176950">
+      <ObjectId>593</ObjectId>
+    </schema>
+    <schema id="54" parent="1" name="C##179252">
+      <ObjectId>594</ObjectId>
+    </schema>
+    <schema id="55" parent="1" name="C##146818">
+      <ObjectId>595</ObjectId>
+    </schema>
+    <schema id="56" parent="1" name="C##231204">
+      <ObjectId>596</ObjectId>
+    </schema>
+    <schema id="57" parent="1" name="C##231244">
+      <ObjectId>597</ObjectId>
+    </schema>
+    <schema id="58" parent="1" name="C##178704">
+      <ObjectId>598</ObjectId>
+    </schema>
+    <schema id="59" parent="1" name="C##231247">
+      <ObjectId>599</ObjectId>
+    </schema>
+    <schema id="60" parent="1" name="C##212734">
+      <ObjectId>600</ObjectId>
+    </schema>
+    <schema id="61" parent="1" name="C##191591">
+      <ObjectId>601</ObjectId>
+    </schema>
+    <schema id="62" parent="1" name="C##231254">
+      <ObjectId>602</ObjectId>
+    </schema>
+    <schema id="63" parent="1" name="C##231228">
+      <ObjectId>603</ObjectId>
+    </schema>
+    <schema id="64" parent="1" name="C##195980">
+      <ObjectId>604</ObjectId>
+    </schema>
+    <schema id="65" parent="1" name="C##231241">
+      <ObjectId>605</ObjectId>
+    </schema>
+    <schema id="66" parent="1" name="C##177196">
+      <ObjectId>606</ObjectId>
+    </schema>
+    <schema id="67" parent="1" name="C##187760">
+      <ObjectId>607</ObjectId>
+    </schema>
+    <schema id="68" parent="1" name="C##223981">
+      <ObjectId>608</ObjectId>
+    </schema>
+    <schema id="69" parent="1" name="C##231238">
+      <ObjectId>609</ObjectId>
+    </schema>
+    <schema id="70" parent="1" name="C##212730">
+      <ObjectId>610</ObjectId>
+    </schema>
+    <schema id="71" parent="1" name="C##206906">
+      <ObjectId>611</ObjectId>
+    </schema>
+    <schema id="72" parent="1" name="C##181080">
+      <ObjectId>612</ObjectId>
+    </schema>
+    <schema id="73" parent="1" name="C##227962">
+      <ObjectId>613</ObjectId>
+    </schema>
+    <schema id="74" parent="1" name="C##157570">
+      <ObjectId>614</ObjectId>
+    </schema>
+    <schema id="75" parent="1" name="C##212784">
+      <ObjectId>615</ObjectId>
+    </schema>
+    <schema id="76" parent="1" name="C##194293">
+      <ObjectId>616</ObjectId>
+    </schema>
+    <schema id="77" parent="1" name="C##231230">
+      <ObjectId>617</ObjectId>
+    </schema>
+    <schema id="78" parent="1" name="C##228018">
+      <ObjectId>618</ObjectId>
+    </schema>
+    <schema id="79" parent="1" name="C##231239">
+      <ObjectId>619</ObjectId>
+    </schema>
+    <schema id="80" parent="1" name="C##188507">
+      <ObjectId>620</ObjectId>
+    </schema>
+    <schema id="81" parent="1" name="C##203430">
+      <ObjectId>621</ObjectId>
+    </schema>
+    <schema id="82" parent="1" name="C##231229">
+      <ObjectId>622</ObjectId>
+    </schema>
+    <schema id="83" parent="1" name="C##142079">
+      <ObjectId>623</ObjectId>
+    </schema>
+    <schema id="84" parent="1" name="C##198332">
+      <ObjectId>624</ObjectId>
+    </schema>
+    <schema id="85" parent="1" name="C##186914">
+      <ObjectId>625</ObjectId>
+    </schema>
+    <schema id="86" parent="1" name="C##174909">
+      <ObjectId>626</ObjectId>
+    </schema>
+    <schema id="87" parent="1" name="C##166179">
+      <ObjectId>627</ObjectId>
+    </schema>
+    <schema id="88" parent="1" name="C##231249">
+      <ObjectId>628</ObjectId>
+    </schema>
+    <schema id="89" parent="1" name="C##164160">
+      <ObjectId>629</ObjectId>
+    </schema>
+    <schema id="90" parent="1" name="C##222135">
+      <ObjectId>630</ObjectId>
+    </schema>
+    <schema id="91" parent="1" name="C##212720">
+      <ObjectId>631</ObjectId>
+    </schema>
+    <schema id="92" parent="1" name="C##238695">
+      <ObjectId>632</ObjectId>
+    </schema>
+    <schema id="93" parent="1" name="C##228137">
+      <ObjectId>633</ObjectId>
+    </schema>
+    <schema id="94" parent="1" name="C##231253">
+      <ObjectId>634</ObjectId>
+    </schema>
+    <schema id="95" parent="1" name="C##169243">
+      <ObjectId>635</ObjectId>
+    </schema>
+    <schema id="96" parent="1" name="C##218206">
+      <ObjectId>636</ObjectId>
+    </schema>
+    <schema id="97" parent="1" name="C##147442">
+      <ObjectId>637</ObjectId>
+    </schema>
+    <schema id="98" parent="1" name="C##192645">
+      <ObjectId>638</ObjectId>
+    </schema>
+    <schema id="99" parent="1" name="C##231223">
+      <ObjectId>639</ObjectId>
+    </schema>
+    <schema id="100" parent="1" name="C##202059">
+      <ObjectId>640</ObjectId>
+    </schema>
+    <schema id="101" parent="1" name="C##140751">
+      <ObjectId>641</ObjectId>
+    </schema>
+    <schema id="102" parent="1" name="C##200337">
+      <ObjectId>642</ObjectId>
+    </schema>
+    <schema id="103" parent="1" name="C##231252">
+      <ObjectId>643</ObjectId>
+    </schema>
+    <schema id="104" parent="1" name="C##212685">
+      <ObjectId>645</ObjectId>
+    </schema>
+    <schema id="105" parent="1" name="C##195960">
+      <ObjectId>648</ObjectId>
+    </schema>
+    <schema id="106" parent="1" name="C##207641">
+      <ObjectId>649</ObjectId>
+    </schema>
+    <schema id="107" parent="1" name="C##180072">
+      <ObjectId>650</ObjectId>
+    </schema>
+    <schema id="108" parent="1" name="C##215233">
+      <ObjectId>652</ObjectId>
+    </schema>
+    <schema id="109" parent="1" name="C##197468">
+      <ObjectId>653</ObjectId>
+    </schema>
+    <schema id="110" parent="1" name="C##215245">
+      <ObjectId>654</ObjectId>
+    </schema>
+    <schema id="111" parent="1" name="C##192077">
+      <ObjectId>656</ObjectId>
+    </schema>
+    <schema id="112" parent="1" name="C##182362">
+      <ObjectId>657</ObjectId>
+    </schema>
+    <schema id="113" parent="1" name="C##209829">
+      <ObjectId>658</ObjectId>
+    </schema>
+    <schema id="114" parent="1" name="C##195960A">
+      <ObjectId>659</ObjectId>
+    </schema>
+    <schema id="115" parent="1" name="C##215233A">
+      <ObjectId>660</ObjectId>
+    </schema>
+    <schema id="116" parent="1" name="C##203326">
+      <ObjectId>661</ObjectId>
+    </schema>
+    <schema id="117" parent="1" name="C##200688">
+      <ObjectId>662</ObjectId>
+    </schema>
+    <schema id="118" parent="1" name="C##228042">
+      <ObjectId>664</ObjectId>
+    </schema>
+    <schema id="119" parent="1" name="C##228140">
+      <ObjectId>665</ObjectId>
+    </schema>
+    <schema id="120" parent="1" name="C##227979">
+      <ObjectId>666</ObjectId>
+    </schema>
+    <schema id="121" parent="1" name="C##228013">
+      <ObjectId>667</ObjectId>
+    </schema>
+    <schema id="122" parent="1" name="C##227955">
+      <ObjectId>668</ObjectId>
+    </schema>
+    <schema id="123" parent="1" name="C##228007">
+      <ObjectId>669</ObjectId>
+    </schema>
+    <schema id="124" parent="1" name="C##220930">
+      <ObjectId>670</ObjectId>
+    </schema>
+    <schema id="125" parent="1" name="C##228121">
+      <ObjectId>671</ObjectId>
+    </schema>
+    <schema id="126" parent="1" name="C##218173">
+      <ObjectId>672</ObjectId>
+    </schema>
+    <schema id="127" parent="1" name="C##228068">
+      <ObjectId>673</ObjectId>
+    </schema>
+    <schema id="128" parent="1" name="C##228020">
+      <ObjectId>674</ObjectId>
+    </schema>
+    <schema id="129" parent="1" name="C##230831">
+      <ObjectId>675</ObjectId>
+    </schema>
+    <schema id="130" parent="1" name="C##218290">
+      <ObjectId>676</ObjectId>
+    </schema>
+    <schema id="131" parent="1" name="C##228124">
+      <ObjectId>677</ObjectId>
+    </schema>
+    <schema id="132" parent="1" name="C##228105">
+      <ObjectId>678</ObjectId>
+    </schema>
+    <schema id="133" parent="1" name="C##225773">
+      <ObjectId>679</ObjectId>
+    </schema>
+    <schema id="134" parent="1" name="C##228098">
+      <ObjectId>680</ObjectId>
+    </schema>
+    <schema id="135" parent="1" name="C##228161">
+      <ObjectId>681</ObjectId>
+    </schema>
+    <schema id="136" parent="1" name="C##227949">
+      <ObjectId>682</ObjectId>
+    </schema>
+    <schema id="137" parent="1" name="C##228075">
+      <ObjectId>683</ObjectId>
+    </schema>
+    <schema id="138" parent="1" name="C##228185">
+      <ObjectId>684</ObjectId>
+    </schema>
+    <schema id="139" parent="1" name="C##228148">
+      <ObjectId>685</ObjectId>
+    </schema>
+    <schema id="140" parent="1" name="C##227982">
+      <ObjectId>686</ObjectId>
+    </schema>
+    <schema id="141" parent="1" name="C##228145">
+      <ObjectId>687</ObjectId>
+    </schema>
+    <schema id="142" parent="1" name="C##227991">
+      <ObjectId>688</ObjectId>
+    </schema>
+    <schema id="143" parent="1" name="C##228055">
+      <ObjectId>689</ObjectId>
+    </schema>
+    <schema id="144" parent="1" name="C##228143">
+      <ObjectId>690</ObjectId>
+    </schema>
+    <schema id="145" parent="1" name="C##228056">
+      <ObjectId>691</ObjectId>
+    </schema>
+    <schema id="146" parent="1" name="C##228173">
+      <ObjectId>692</ObjectId>
+    </schema>
+    <schema id="147" parent="1" name="C##228123">
+      <ObjectId>693</ObjectId>
+    </schema>
+    <schema id="148" parent="1" name="C##228062">
+      <ObjectId>694</ObjectId>
+    </schema>
+    <schema id="149" parent="1" name="C##211197">
+      <ObjectId>695</ObjectId>
+    </schema>
+    <schema id="150" parent="1" name="C##228054">
+      <ObjectId>696</ObjectId>
+    </schema>
+    <schema id="151" parent="1" name="C##227973">
+      <ObjectId>697</ObjectId>
+    </schema>
+    <schema id="152" parent="1" name="C##228026">
+      <ObjectId>698</ObjectId>
+    </schema>
+    <schema id="153" parent="1" name="C##232493">
+      <ObjectId>699</ObjectId>
+    </schema>
+    <schema id="154" parent="1" name="C##228177">
+      <ObjectId>700</ObjectId>
+    </schema>
+    <schema id="155" parent="1" name="C##227953">
+      <ObjectId>701</ObjectId>
+    </schema>
+    <schema id="156" parent="1" name="C##227954">
+      <ObjectId>702</ObjectId>
+    </schema>
+    <schema id="157" parent="1" name="C##204816">
+      <ObjectId>703</ObjectId>
+    </schema>
+    <schema id="158" parent="1" name="C##227948">
+      <ObjectId>704</ObjectId>
+    </schema>
+    <schema id="159" parent="1" name="C##228048">
+      <ObjectId>705</ObjectId>
+    </schema>
+    <schema id="160" parent="1" name="C##228166">
+      <ObjectId>706</ObjectId>
+    </schema>
+    <schema id="161" parent="1" name="C##228165">
+      <ObjectId>707</ObjectId>
+    </schema>
+    <schema id="162" parent="1" name="C##228111">
+      <ObjectId>708</ObjectId>
+    </schema>
+    <schema id="163" parent="1" name="C##228112">
+      <ObjectId>709</ObjectId>
+    </schema>
+    <schema id="164" parent="1" name="C##228032">
+      <ObjectId>710</ObjectId>
+    </schema>
+    <schema id="165" parent="1" name="C##228162">
+      <ObjectId>711</ObjectId>
+    </schema>
+    <schema id="166" parent="1" name="C##227974">
+      <ObjectId>712</ObjectId>
+    </schema>
+    <schema id="167" parent="1" name="C##227984">
+      <ObjectId>713</ObjectId>
+    </schema>
+    <schema id="168" parent="1" name="C##228089">
+      <ObjectId>714</ObjectId>
+    </schema>
+    <schema id="169" parent="1" name="C##200746">
+      <ObjectId>715</ObjectId>
+    </schema>
+    <schema id="170" parent="1" name="C##228172">
+      <ObjectId>716</ObjectId>
+    </schema>
+    <schema id="171" parent="1" name="C##183474">
+      <ObjectId>717</ObjectId>
+    </schema>
+    <schema id="172" parent="1" name="C##230984">
+      <ObjectId>718</ObjectId>
+    </schema>
+    <schema id="173" parent="1" name="C##228122">
+      <ObjectId>719</ObjectId>
+    </schema>
+    <schema id="174" parent="1" name="C##228133">
+      <ObjectId>720</ObjectId>
+    </schema>
+    <schema id="175" parent="1" name="C##228114">
+      <ObjectId>721</ObjectId>
+    </schema>
+    <schema id="176" parent="1" name="C##228021">
+      <ObjectId>722</ObjectId>
+    </schema>
+    <schema id="177" parent="1" name="C##228170">
+      <ObjectId>723</ObjectId>
+    </schema>
+    <schema id="178" parent="1" name="C##228078">
+      <ObjectId>724</ObjectId>
+    </schema>
+    <schema id="179" parent="1" name="C##228050">
+      <ObjectId>725</ObjectId>
+    </schema>
+    <schema id="180" parent="1" name="C##227976">
+      <ObjectId>726</ObjectId>
+    </schema>
+    <schema id="181" parent="1" name="C##227987">
+      <ObjectId>727</ObjectId>
+    </schema>
+    <schema id="182" parent="1" name="C##229755">
+      <ObjectId>728</ObjectId>
+    </schema>
+    <schema id="183" parent="1" name="C##227996">
+      <ObjectId>729</ObjectId>
+    </schema>
+    <schema id="184" parent="1" name="C##227970">
+      <ObjectId>730</ObjectId>
+    </schema>
+    <schema id="185" parent="1" name="C##227964">
+      <ObjectId>731</ObjectId>
+    </schema>
+    <schema id="186" parent="1" name="C##228046">
+      <ObjectId>732</ObjectId>
+    </schema>
+    <schema id="187" parent="1" name="C##228169">
+      <ObjectId>733</ObjectId>
+    </schema>
+    <schema id="188" parent="1" name="C##228093">
+      <ObjectId>734</ObjectId>
+    </schema>
+    <schema id="189" parent="1" name="C##228152">
+      <ObjectId>735</ObjectId>
+    </schema>
+    <schema id="190" parent="1" name="C##228127">
+      <ObjectId>736</ObjectId>
+    </schema>
+    <schema id="191" parent="1" name="C##228030">
+      <ObjectId>737</ObjectId>
+    </schema>
+    <schema id="192" parent="1" name="C##228073">
+      <ObjectId>738</ObjectId>
+    </schema>
+    <schema id="193" parent="1" name="C##228157">
+      <ObjectId>739</ObjectId>
+    </schema>
+    <schema id="194" parent="1" name="C##228107">
+      <ObjectId>740</ObjectId>
+    </schema>
+    <schema id="195" parent="1" name="C##228003">
+      <ObjectId>741</ObjectId>
+    </schema>
+    <schema id="196" parent="1" name="C##228009">
+      <ObjectId>742</ObjectId>
+    </schema>
+    <schema id="197" parent="1" name="C##227963">
+      <ObjectId>743</ObjectId>
+    </schema>
+    <schema id="198" parent="1" name="C##228102">
+      <ObjectId>744</ObjectId>
+    </schema>
+    <schema id="199" parent="1" name="C##228108">
+      <ObjectId>745</ObjectId>
+    </schema>
+    <schema id="200" parent="1" name="C##227999">
+      <ObjectId>746</ObjectId>
+    </schema>
+    <schema id="201" parent="1" name="C##212821">
+      <ObjectId>747</ObjectId>
+    </schema>
+    <schema id="202" parent="1" name="C##231735">
+      <ObjectId>748</ObjectId>
+    </schema>
+    <schema id="203" parent="1" name="C##228094">
+      <ObjectId>749</ObjectId>
+    </schema>
+    <schema id="204" parent="1" name="C##228110">
+      <ObjectId>750</ObjectId>
+    </schema>
+    <schema id="205" parent="1" name="C##227983">
+      <ObjectId>751</ObjectId>
+    </schema>
+    <schema id="206" parent="1" name="C##228182">
+      <ObjectId>752</ObjectId>
+    </schema>
+    <schema id="207" parent="1" name="C##221645">
+      <ObjectId>753</ObjectId>
+    </schema>
+    <schema id="208" parent="1" name="C##228052">
+      <ObjectId>754</ObjectId>
+    </schema>
+    <schema id="209" parent="1" name="C##228053">
+      <ObjectId>755</ObjectId>
+    </schema>
+    <schema id="210" parent="1" name="C##228180">
+      <ObjectId>756</ObjectId>
+    </schema>
+    <schema id="211" parent="1" name="C##227986">
+      <ObjectId>757</ObjectId>
+    </schema>
+    <schema id="212" parent="1" name="C##211630">
+      <ObjectId>758</ObjectId>
+    </schema>
+    <schema id="213" parent="1" name="C##228163">
+      <ObjectId>759</ObjectId>
+    </schema>
+    <schema id="214" parent="1" name="C##193002">
+      <ObjectId>760</ObjectId>
+    </schema>
+    <schema id="215" parent="1" name="C##211809">
+      <ObjectId>761</ObjectId>
+    </schema>
+    <schema id="216" parent="1" name="DVSYS">
+      <ObjectId>1279990</ObjectId>
+    </schema>
+    <schema id="217" parent="1" name="SYSBACKUP">
+      <ObjectId>2147483617</ObjectId>
+    </schema>
+    <schema id="218" parent="1" name="SYSDG">
+      <ObjectId>2147483618</ObjectId>
+    </schema>
+    <schema id="219" parent="1" name="SYSKM">
+      <ObjectId>2147483619</ObjectId>
+    </schema>
+    <schema id="220" parent="1" name="XS$NULL">
+      <ObjectId>2147483638</ObjectId>
+    </schema>
+    <table id="221" parent="2" name="BANDY">
+      <ObjectId>297045</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="222" parent="2" name="FUNKCJE">
+      <ObjectId>297039</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="223" parent="2" name="KOCURY">
+      <ObjectId>297043</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="224" parent="2" name="WROGOWIE">
+      <ObjectId>297041</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="225" parent="2" name="WROGOWIE_KOCUROW">
+      <ObjectId>297048</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="226" parent="221" name="NR_BANDY">
+      <Position>1</Position>
+      <DataType>NUMBER(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="227" parent="221" name="NAZWA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="228" parent="221" name="TEREN">
+      <Position>3</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <column id="229" parent="221" name="SZEF_BANDY">
+      <Position>4</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <index id="230" parent="221" name="BAND_PR">
+      <ObjectId>297046</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>NR_BANDY</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="231" parent="221" name="BAN_TEREN_UQ">
+      <ObjectId>297047</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>TEREN</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="232" parent="221" name="BAND_PR">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>NR_BANDY</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>BAND_PR</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="233" parent="221" name="BAN_TEREN_UQ">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>TEREN</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>BAN_TEREN_UQ</UnderlyingIndexName>
+    </key>
+    <foreign-key id="234" parent="221" name="BAND_SZEF_FK">
+      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ColNames>SZEF_BANDY</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>KOCURY</RefTableName>
+      <RefKeyName>KOC_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <check id="235" parent="221" name="BAND_NAZWA_NN">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>NAZWA</ColNames>
+      <Predicate>&quot;NAZWA&quot; IS NOT NULL</Predicate>
+    </check>
+    <column id="236" parent="222" name="FUNKCJA">
+      <Position>1</Position>
+      <DataType>VARCHAR2(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="237" parent="222" name="MIN_MYSZY">
+      <Position>2</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <column id="238" parent="222" name="MAX_MYSZY">
+      <Position>3</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <index id="239" parent="222" name="FUN_PR">
+      <ObjectId>297040</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>FUNKCJA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="240" parent="222" name="FUN_PR">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>FUNKCJA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>FUN_PR</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="241" parent="222" name="FUN_MINMYSZY_CH">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>MIN_MYSZY</ColNames>
+      <Predicate>min_myszy&gt;5</Predicate>
+    </check>
+    <check id="242" parent="222" name="FUN_MAXMYSZY_LOW_CH">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>MAX_MYSZY
+MIN_MYSZY</ColNames>
+      <Predicate>max_myszy&gt;min_myszy</Predicate>
+    </check>
+    <check id="243" parent="222" name="FUN_MAXMYSZY_HIGH_CH">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>MAX_MYSZY</ColNames>
+      <Predicate>max_myszy&lt;200</Predicate>
+    </check>
+    <column id="244" parent="223" name="IMIE">
+      <Position>1</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="245" parent="223" name="PLEC">
+      <Position>2</Position>
+      <DataType>VARCHAR2(1)|0</DataType>
+    </column>
+    <column id="246" parent="223" name="PSEUDO">
+      <Position>3</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="247" parent="223" name="FUNKCJA">
+      <Position>4</Position>
+      <DataType>VARCHAR2(10)|0</DataType>
+    </column>
+    <column id="248" parent="223" name="SZEF">
+      <Position>5</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <column id="249" parent="223" name="W_STADKU_OD">
+      <Position>6</Position>
+      <DataType>DATE|0</DataType>
+      <DefaultExpression>SYSDATE</DefaultExpression>
+    </column>
+    <column id="250" parent="223" name="PRZYDZIAL_MYSZY">
+      <Position>7</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <column id="251" parent="223" name="MYSZY_EXTRA">
+      <Position>8</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <column id="252" parent="223" name="NR_BANDY">
+      <Position>9</Position>
+      <DataType>NUMBER(2)|0</DataType>
+    </column>
+    <index id="253" parent="223" name="KOC_PR">
+      <ObjectId>297044</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PSEUDO</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="254" parent="223" name="KOC_PR">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>PSEUDO</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>KOC_PR</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="255" parent="223" name="KOC_FUN_FK">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>FUNKCJA</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>FUNKCJE</RefTableName>
+      <RefKeyName>FUN_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="256" parent="223" name="KOC_SZEF_FK">
+      <ModifiedTimestamp>2017-10-21.17:24:31</ModifiedTimestamp>
+      <ColNames>SZEF</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>KOCURY</RefTableName>
+      <RefKeyName>KOC_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="257" parent="223" name="KOC_BAND_FK">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>NR_BANDY</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>BANDY</RefTableName>
+      <RefKeyName>BAND_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <check id="258" parent="223" name="KOC_IMIE_NN">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>IMIE</ColNames>
+      <Predicate>&quot;IMIE&quot; IS NOT NULL</Predicate>
+    </check>
+    <check id="259" parent="223" name="KOC_PLEC_CH">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>PLEC</ColNames>
+      <Predicate>plec IN (&apos;M&apos;,&apos;D&apos;)</Predicate>
+    </check>
+    <column id="260" parent="224" name="IMIE_WROGA">
+      <Position>1</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="261" parent="224" name="STOPIEN_WROGOSCI">
+      <Position>2</Position>
+      <DataType>NUMBER(2)|0</DataType>
+    </column>
+    <column id="262" parent="224" name="GATUNEK">
+      <Position>3</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <column id="263" parent="224" name="LAPOWKA">
+      <Position>4</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+    </column>
+    <index id="264" parent="224" name="WROG_PR">
+      <ObjectId>297042</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>IMIE_WROGA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="265" parent="224" name="WROG_PR">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>IMIE_WROGA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>WROG_PR</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="266" parent="224" name="WROG_SW_CH">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>STOPIEN_WROGOSCI</ColNames>
+      <Predicate>stopien_wrogosci BETWEEN 1 AND 10</Predicate>
+    </check>
+    <column id="267" parent="225" name="PSEUDO">
+      <Position>1</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="268" parent="225" name="IMIE_WROGA">
+      <Position>2</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="269" parent="225" name="DATA_INCYDENTU">
+      <Position>3</Position>
+      <DataType>DATE|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="270" parent="225" name="OPIS_INCYDENTU">
+      <Position>4</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+    </column>
+    <index id="271" parent="225" name="WROGKOC_PK">
+      <ObjectId>297049</ObjectId>
+      <CreatedTimestamp>2017-10-21.17:23:25</CreatedTimestamp>
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>PSEUDO
+IMIE_WROGA</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="272" parent="225" name="WROGKOC_PK">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>PSEUDO
+IMIE_WROGA</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>WROGKOC_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="273" parent="225" name="WROGKOC_PSEUD_FK">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>PSEUDO</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>KOCURY</RefTableName>
+      <RefKeyName>KOC_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <foreign-key id="274" parent="225" name="WROGKOC_IMIE_FK">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>IMIE_WROGA</ColNames>
+      <RefSchemaName>C##228135</RefSchemaName>
+      <RefTableName>WROGOWIE</RefTableName>
+      <RefKeyName>WROG_PR</RefKeyName>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <check id="275" parent="225" name="WROG_DATA_NN">
+      <ModifiedTimestamp>2017-10-21.17:23:25</ModifiedTimestamp>
+      <ColNames>DATA_INCYDENTU</ColNames>
+      <Predicate>&quot;DATA_INCYDENTU&quot; IS NOT NULL</Predicate>
+    </check>
+  </database-model>
+</dataSource>
