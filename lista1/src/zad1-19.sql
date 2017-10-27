@@ -163,7 +163,7 @@ HAVING AVG(NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0)) IN (
 ORDER BY 2 ASC;
 
 /*
-Zadanie 13:
+Zadanie 13a:
  */
 SELECT
   pseudo                                  "PSEUDO",
@@ -173,42 +173,58 @@ WHERE (
         SELECT DISTINCT COUNT((przydzial_myszy + NVL(myszy_extra, 0)))
         FROM kocury
         WHERE (k.przydzial_myszy + NVL(k.myszy_extra, 0)) < (przydzial_myszy + NVL(myszy_extra, 0))
-      ) < &var_n
+      ) < &n
 ORDER BY "ZJADA" DESC;
+
+
+/*
+Zadanie 13b:
+ */
+SELECT
+  pseudo "PSEUDO",
+  (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
+FROM Kocury k
+WHERE (przydzial_myszy + NVL(myszy_extra, 0)) IN (
+  SELECT * FROM (
+    SELECT DISTINCT (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
+    FROM Kocury
+    ORDER BY "ZJADA" DESC
+  ) WHERE ROWNUM <= n
+)
+ORDER BY "ZJADA" DESC;
+
+/*
+Zadanie13c:
+ */
+SELECT
+  k1.pseudo "PSEUDO",
+  MAX(k1.przydzial_myszy + NVL(k1.myszy_extra, 0)) "ZJADA"
+FROM Kocury k1, Kocury k2
+WHERE (k1.przydzial_myszy + NVL(k1.myszy_extra, 0)) <= (k2.przydzial_myszy + NVL(k2.myszy_extra, 0))
+GROUP BY k1.pseudo
+HAVING COUNT(DISTINCT (k2.przydzial_myszy + NVL(k2.myszy_extra, 0))) <= &n
+ORDER BY "ZJADA" DESC;
+
+/*
+Zadanie13 d:
+ */
+SELECT
+  "PSEUDO", "ZJADA"
+FROM (
+  SELECT
+    pseudo "PSEUDO",
+    (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA",
+    DENSE_RANK() OVER (
+      ORDER BY (przydzial_myszy + NVL(myszy_extra, 0)) DESC
+      ) "RANK"
+  FROM Kocury
+)
+WHERE "RANK" <= &n;
+
 
 /*
 Zadanie 16:
  */
-/*
-Kocury o 3 najwiekszych przydzialach myszy sposrod band 'LACIACI MYSLIWI' oraz 'CZARNI RYCERZE'
- */
-SELECT
-  "PSEUDO",
-  "PLEC",
-  "Myszy przed podw.",
-  "Extra przed podw."
-FROM (
-  SELECT
-    pseudo                  "PSEUDO",
-    plec                    "PLEC",
-    NVL(przydzial_myszy, 0) "Myszy przed podw.",
-    NVL(myszy_extra, 0)     "Extra przed podw.",
-    DENSE_RANK()
-    OVER (
-      PARTITION BY nazwa
-      ORDER BY w_stadku_od ASC
-      )                     "RANK"
-  FROM kocury
-    JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
-  WHERE nazwa IN ('LACIACI MYSLIWI', 'CZARNI RYCERZE')
-  ORDER BY w_stadku_od ASC
-)
-WHERE "RANK" <= 3;
-
-/*
-Zadanie 16a:
- */
-
 SELECT
   "PSEUDO",
   "PLEC",
