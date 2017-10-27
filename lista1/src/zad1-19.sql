@@ -165,8 +165,125 @@ ORDER BY 2 ASC;
 /*
 Zadanie 13:
  */
+SELECT
+  pseudo                                  "PSEUDO",
+  (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
+FROM kocury k
+WHERE (
+        SELECT DISTINCT COUNT((przydzial_myszy + NVL(myszy_extra, 0)))
+        FROM kocury
+        WHERE (k.przydzial_myszy + NVL(k.myszy_extra, 0)) < (przydzial_myszy + NVL(myszy_extra, 0))
+      ) < &var_n
+ORDER BY "ZJADA" DESC;
 
 /*
 Zadanie 16:
  */
+/*
+Kocury o 3 najwiekszych przydzialach myszy sposrod band 'LACIACI MYSLIWI' oraz 'CZARNI RYCERZE'
+ */
+SELECT
+  "PSEUDO",
+  "PLEC",
+  "Myszy przed podw.",
+  "Extra przed podw."
+FROM (
+  SELECT
+    pseudo                  "PSEUDO",
+    plec                    "PLEC",
+    NVL(przydzial_myszy, 0) "Myszy przed podw.",
+    NVL(myszy_extra, 0)     "Extra przed podw.",
+    DENSE_RANK()
+    OVER (
+      PARTITION BY nazwa
+      ORDER BY w_stadku_od ASC
+      )                     "RANK"
+  FROM kocury
+    JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
+  WHERE nazwa IN ('LACIACI MYSLIWI', 'CZARNI RYCERZE')
+  ORDER BY w_stadku_od ASC
+)
+WHERE "RANK" <= 3;
+
+/*
+Zadanie 16a:
+ */
+
+SELECT
+  "PSEUDO",
+  "PLEC",
+  "Myszy przed podw.",
+  "Extra przed podw."
+FROM (
+  SELECT
+    pseudo "PSEUDO",
+    plec "PLEC",
+    przydzial_myszy "Myszy przed podw.",
+    NVL(myszy_extra, 0) "Extra przed podw.",
+    DENSE_RANK() OVER (
+      PARTITION BY nazwa
+      ORDER BY w_stadku_od ASC
+      ) "RANK"
+  FROM Kocury
+    JOIN Bandy USING(nr_bandy)
+  WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+  ORDER BY w_stadku_od ASC
+)
+WHERE "RANK" <= 3;
+
+UPDATE Kocury k
+SET
+  przydzial_myszy = przydzial_myszy + (
+    CASE
+    WHEN plec = 'D' THEN
+      0.1 * (SELECT MIN(przydzial_myszy) FROM Kocury)
+    ELSE
+      10
+    END
+  ),
+  myszy_extra = NVL(myszy_extra, 0) + 0.15 * (
+    SELECT AVG(NVL(myszy_extra, 0)) FROM Kocury WHERE nr_bandy = k.nr_bandy
+  )
+WHERE pseudo IN (
+  SELECT pseudo
+  FROM (
+    SELECT
+      pseudo,
+      DENSE_RANK() OVER (
+        PARTITION BY nazwa
+        ORDER BY w_stadku_od ASC
+        ) "RANK"
+    FROM Kocury
+      JOIN Bandy USING(nr_bandy)
+    WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+    ORDER BY w_stadku_od ASC
+  )
+  WHERE "RANK" <= 3
+);
+
+
+SELECT
+  "PSEUDO",
+  "PLEC",
+  "Myszy po podw.",
+  "Extra po podw."
+FROM (
+  SELECT
+    pseudo "PSEUDO",
+    plec "PLEC",
+    przydzial_myszy "Myszy po podw.",
+    NVL(myszy_extra, 0) "Extra po podw.",
+    DENSE_RANK() OVER (
+      PARTITION BY nazwa
+      ORDER BY w_stadku_od ASC
+      ) "RANK"
+  FROM Kocury
+    JOIN Bandy USING(nr_bandy)
+  WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+  ORDER BY w_stadku_od ASC
+)
+WHERE "RANK" <= 3;
+
+ROLLBACK;
+
 
