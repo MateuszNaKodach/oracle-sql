@@ -102,3 +102,71 @@ FROM kocury k
   LEFT JOIN kocury s2 ON s1.szef = s2.pseudo
   LEFT JOIN kocury s3 ON s2.szef = s3.pseudo
 WHERE k.funkcja IN ('KOT', 'MILUSIA');
+
+/*
+Zadanie 10:
+ */
+SELECT
+  imie                "Imie kotki",
+  nazwa               "Nazwa bandy",
+  wrogowie.imie_wroga "Imie wroga",
+  stopien_wrogosci    "Ocen wroga",
+  data_incydentu      "Data inc."
+FROM wrogowie_kocurow
+  LEFT JOIN kocury ON wrogowie_kocurow.pseudo = kocury.pseudo
+  LEFT JOIN wrogowie ON wrogowie_kocurow.imie_wroga = wrogowie.imie_wroga
+  LEFT JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
+WHERE plec = 'D' AND data_incydentu > '2007-01-01'
+ORDER BY imie ASC;
+
+/*
+Zadanie 11:
+ */
+SELECT
+  imie            "IMIE",
+  funkcja         "FUNKCJA",
+  przydzial_myszy "PRZYDZIAL MYSZY"
+FROM kocury
+WHERE przydzial_myszy >= 3 * (
+  SELECT k.przydzial_myszy
+  FROM kocury k
+    JOIN bandy ON k.nr_bandy = bandy.nr_bandy
+  WHERE funkcja = 'MILUSIA'
+        AND teren IN ('SAD', 'CALOSC')
+  ORDER BY k.przydzial_myszy DESC
+  FETCH NEXT 1 ROWS ONLY)
+ORDER BY przydzial_myszy ASC;
+
+/*
+Zadanie 12:
+ */
+SELECT
+  funkcja                                                   "Funkcja",
+  ROUND(AVG(NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0))) "Sr. najw. i najn. prz. myszy"
+FROM kocury
+WHERE funkcja != 'SZEFUNIO'
+GROUP BY funkcja
+HAVING AVG(NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0)) IN (
+  (
+    SELECT MAX(AVG(przydzial_myszy + NVL(myszy_extra, 0)))
+    FROM kocury
+    WHERE funkcja != 'SZEFUNIO'
+    GROUP BY funkcja
+  ),
+  (
+    SELECT MIN(AVG(przydzial_myszy + NVL(myszy_extra, 0)))
+    FROM kocury
+    WHERE funkcja != 'SZEFUNIO'
+    GROUP BY funkcja
+  )
+)
+ORDER BY 2 ASC;
+
+/*
+Zadanie 13:
+ */
+
+/*
+Zadanie 16:
+ */
+
