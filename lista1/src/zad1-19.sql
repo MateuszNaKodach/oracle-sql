@@ -73,7 +73,7 @@ Zadanie 7:
  */
 SELECT LPAD(' ', (level - 1) * 4, ' ') || pseudo "Droga sluzbowa"
 FROM kocury
-CONNECT BY PRIOR szef = pseudo
+CONNECT BY PRIOR szef = pseudo /*modyfikacja: AND pseudo!='LYSY'*/
 START WITH plec = 'M' AND MONTHS_BETWEEN(SYSDATE, w_stadku_od) > 8 * 12
            AND NVL(myszy_extra, 0) = 0;
 
@@ -121,6 +121,7 @@ ORDER BY imie ASC;
 
 /*
 Zadanie 11:
+Znalezione w necie: FETCH NEXT 1 ROWS ONLY
  */
 SELECT
   imie            "IMIE",
@@ -128,13 +129,15 @@ SELECT
   przydzial_myszy "PRZYDZIAL MYSZY"
 FROM kocury
 WHERE przydzial_myszy >= 3 * (
-  SELECT k.przydzial_myszy
-  FROM kocury k
-    JOIN bandy ON k.nr_bandy = bandy.nr_bandy
-  WHERE funkcja = 'MILUSIA'
-        AND teren IN ('SAD', 'CALOSC')
-  ORDER BY k.przydzial_myszy DESC
-  FETCH NEXT 1 ROWS ONLY)
+  SELECT *
+  FROM (
+    SELECT k.przydzial_myszy
+    FROM kocury k
+      JOIN bandy ON k.nr_bandy = bandy.nr_bandy
+    WHERE funkcja = 'MILUSIA'
+          AND teren IN ('SAD', 'CALOSC')
+    ORDER BY k.przydzial_myszy DESC)
+  WHERE rownum = 1)
 ORDER BY przydzial_myszy ASC;
 
 /*
@@ -166,13 +169,13 @@ ORDER BY 2 ASC;
 Zadanie 13a:
  */
 SELECT
-  pseudo                                  "PSEUDO",
-  (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
+  k.pseudo                                            "PSEUDO",
+  (NVL(k.przydzial_myszy, 0) + NVL(k.myszy_extra, 0)) "ZJADA"
 FROM kocury k
 WHERE (
-        SELECT DISTINCT COUNT((przydzial_myszy + NVL(myszy_extra, 0)))
+        SELECT DISTINCT COUNT((NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0)))
         FROM kocury
-        WHERE (k.przydzial_myszy + NVL(k.myszy_extra, 0)) < (przydzial_myszy + NVL(myszy_extra, 0))
+        WHERE (NVL(k.przydzial_myszy, 0) + NVL(k.myszy_extra, 0)) < (NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0))
       ) < &n
 ORDER BY "ZJADA" DESC;
 
@@ -181,15 +184,17 @@ ORDER BY "ZJADA" DESC;
 Zadanie 13b:
  */
 SELECT
-  pseudo "PSEUDO",
+  pseudo                                  "PSEUDO",
   (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
-FROM Kocury k
+FROM kocury k
 WHERE (przydzial_myszy + NVL(myszy_extra, 0)) IN (
-  SELECT * FROM (
+  SELECT *
+  FROM (
     SELECT DISTINCT (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA"
-    FROM Kocury
+    FROM kocury
     ORDER BY "ZJADA" DESC
-  ) WHERE ROWNUM <= n
+  )
+  WHERE rownum <= &n
 )
 ORDER BY "ZJADA" DESC;
 
@@ -197,9 +202,9 @@ ORDER BY "ZJADA" DESC;
 Zadanie13c:
  */
 SELECT
-  k1.pseudo "PSEUDO",
+  k1.pseudo                                        "PSEUDO",
   MAX(k1.przydzial_myszy + NVL(k1.myszy_extra, 0)) "ZJADA"
-FROM Kocury k1, Kocury k2
+FROM kocury k1, kocury k2
 WHERE (k1.przydzial_myszy + NVL(k1.myszy_extra, 0)) <= (k2.przydzial_myszy + NVL(k2.myszy_extra, 0))
 GROUP BY k1.pseudo
 HAVING COUNT(DISTINCT (k2.przydzial_myszy + NVL(k2.myszy_extra, 0))) <= &n
@@ -209,17 +214,24 @@ ORDER BY "ZJADA" DESC;
 Zadanie13 d:
  */
 SELECT
-  "PSEUDO", "ZJADA"
+  "PSEUDO",
+  "ZJADA"
 FROM (
   SELECT
-    pseudo "PSEUDO",
+    pseudo                                  "PSEUDO",
     (przydzial_myszy + NVL(myszy_extra, 0)) "ZJADA",
-    DENSE_RANK() OVER (
+    DENSE_RANK()
+    OVER (
       ORDER BY (przydzial_myszy + NVL(myszy_extra, 0)) DESC
-      ) "RANK"
-  FROM Kocury
+      )                                     "RANK"
+  FROM kocury
 )
 WHERE "RANK" <= &n;
+
+
+/*
+Zadanie 15:
+ */
 
 
 /*
@@ -232,46 +244,52 @@ SELECT
   "Extra przed podw."
 FROM (
   SELECT
-    pseudo "PSEUDO",
-    plec "PLEC",
-    przydzial_myszy "Myszy przed podw.",
+    pseudo              "PSEUDO",
+    plec                "PLEC",
+    przydzial_myszy     "Myszy przed podw.",
     NVL(myszy_extra, 0) "Extra przed podw.",
-    DENSE_RANK() OVER (
+    DENSE_RANK()
+    OVER (
       PARTITION BY nazwa
       ORDER BY w_stadku_od ASC
-      ) "RANK"
-  FROM Kocury
-    JOIN Bandy USING(nr_bandy)
-  WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+      )                 "RANK"
+  FROM kocury
+    JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
+  WHERE nazwa IN ('LACIACI MYSLIWI', 'CZARNI RYCERZE')
   ORDER BY w_stadku_od ASC
 )
 WHERE "RANK" <= 3;
 
-UPDATE Kocury k
+UPDATE kocury k
 SET
   przydzial_myszy = przydzial_myszy + (
     CASE
-    WHEN plec = 'D' THEN
-      0.1 * (SELECT MIN(przydzial_myszy) FROM Kocury)
+    WHEN plec = 'D'
+      THEN
+        0.1 * (SELECT MIN(przydzial_myszy)
+               FROM kocury)
     ELSE
       10
     END
   ),
-  myszy_extra = NVL(myszy_extra, 0) + 0.15 * (
-    SELECT AVG(NVL(myszy_extra, 0)) FROM Kocury WHERE nr_bandy = k.nr_bandy
+  myszy_extra     = NVL(myszy_extra, 0) + 0.15 * (
+    SELECT AVG(NVL(myszy_extra, 0))
+    FROM kocury
+    WHERE nr_bandy = k.nr_bandy
   )
 WHERE pseudo IN (
   SELECT pseudo
   FROM (
     SELECT
       pseudo,
-      DENSE_RANK() OVER (
+      DENSE_RANK()
+      OVER (
         PARTITION BY nazwa
         ORDER BY w_stadku_od ASC
         ) "RANK"
-    FROM Kocury
-      JOIN Bandy USING(nr_bandy)
-    WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+    FROM kocury
+      JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
+    WHERE nazwa IN ('LACIACI MYSLIWI', 'CZARNI RYCERZE')
     ORDER BY w_stadku_od ASC
   )
   WHERE "RANK" <= 3
@@ -285,17 +303,18 @@ SELECT
   "Extra po podw."
 FROM (
   SELECT
-    pseudo "PSEUDO",
-    plec "PLEC",
-    przydzial_myszy "Myszy po podw.",
+    pseudo              "PSEUDO",
+    plec                "PLEC",
+    przydzial_myszy     "Myszy po podw.",
     NVL(myszy_extra, 0) "Extra po podw.",
-    DENSE_RANK() OVER (
+    DENSE_RANK()
+    OVER (
       PARTITION BY nazwa
       ORDER BY w_stadku_od ASC
-      ) "RANK"
-  FROM Kocury
-    JOIN Bandy USING(nr_bandy)
-  WHERE nazwa IN ('LACIACI MYSLIWI','CZARNI RYCERZE')
+      )                 "RANK"
+  FROM kocury
+    JOIN bandy ON kocury.nr_bandy = bandy.nr_bandy
+  WHERE nazwa IN ('LACIACI MYSLIWI', 'CZARNI RYCERZE')
   ORDER BY w_stadku_od ASC
 )
 WHERE "RANK" <= 3;
