@@ -21,6 +21,7 @@ BEGIN
 END;
 
 ---ZADANIE 19:
+SET AUTOCOMMIT OFF;
 
 DECLARE
   CURSOR kursor_kocury IS
@@ -38,30 +39,42 @@ DECLARE
   max_przydzial_dla_funkcji  NUMBER := 0;
   przydzial_po_podwyzce      NUMBER := 0;
 BEGIN
+  DBMS_OUTPUT.PUT_LINE('Poczatek programu, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
+
   <<outer_loop>> LOOP
+
   OPEN kursor_kocury;
 
+  DBMS_OUTPUT.PUT_LINE('Petla zewnetrzna start, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
 <<inner_loop>>
   LOOP
 
     SELECT SUM(przydzial_myszy)
     INTO aktualny_przydzial_myszy
     FROM kocury;
+
+    DBMS_OUTPUT.PUT_LINE('Petla wewnetrzna, liczba zmian: ' || liczba_zmian);
+    DBMS_OUTPUT.PUT_LINE('Petla wewnetrzna, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
+
     FETCH kursor_kocury INTO kocury_r;
-    EXIT inner_loop
-    WHEN kursor_kocury%NOTFOUND OR aktualny_przydzial_myszy > maksymalny_przydzial_myszy;
+
+
     EXIT outer_loop
     WHEN aktualny_przydzial_myszy > maksymalny_przydzial_myszy;
+    EXIT inner_loop
+    WHEN kursor_kocury%NOTFOUND;
 
 
-    dbms_output.PUT_LINE(
-        'Aktualny przydzial: ' || aktualny_przydzial_myszy || 'Maksymalny przydzial: ' || maksymalny_przydzial_myszy);
     SELECT MAX(przydzial_myszy)
     INTO max_przydzial_dla_funkcji
     FROM kocury
     WHERE kocury.funkcja = kocury_r.funkcja;
 
     przydzial_po_podwyzce := kocury_r.przydzial_myszy + (0.1 * kocury_r.przydzial_myszy);
+
+    DBMS_OUTPUT.PUT_LINE('Przydzial po podwyzce: ' || przydzial_po_podwyzce);
+    DBMS_OUTPUT.PUT_LINE('Max dla funkcji ' || kocury_r.funkcja || ' wynosi: '|| max_przydzial_dla_funkcji );
+
     IF przydzial_po_podwyzce > max_przydzial_dla_funkcji
     THEN
       UPDATE kocury
@@ -83,71 +96,13 @@ END;
 
 ROLLBACK;
 
----WERSJA NIBY DZIALA:
-DECLARE
-  CURSOR kursor_kocury IS
-    SELECT
-      przydzial_myszy,
-      funkcja
-    FROM kocury
-    ORDER BY kocury.przydzial_myszy ASC
-    FOR UPDATE OF przydzial_myszy;
 
-  kocury_r                   kursor_kocury%ROWTYPE;
-  maksymalny_przydzial_myszy NUMBER := 1050;
-  liczba_zmian               NUMBER := 0;
-  aktualny_przydzial_myszy   NUMBER := 0;
-  max_przydzial_dla_funkcji  NUMBER := 0;
-  przydzial_po_podwyzce      NUMBER := 0;
-BEGIN
-  LOOP
-    SELECT SUM(przydzial_myszy)
-    INTO aktualny_przydzial_myszy
-    FROM kocury;
-
-    EXIT WHEN aktualny_przydzial_myszy > maksymalny_przydzial_myszy;
-
-    OPEN kursor_kocury;
-    LOOP
-
-      SELECT SUM(przydzial_myszy)
-      INTO aktualny_przydzial_myszy
-      FROM kocury;
-      FETCH kursor_kocury INTO kocury_r;
-      EXIT WHEN kursor_kocury%NOTFOUND OR aktualny_przydzial_myszy > maksymalny_przydzial_myszy;
-
-
-      SELECT MAX(przydzial_myszy)
-      INTO max_przydzial_dla_funkcji
-      FROM kocury
-      WHERE kocury.funkcja = kocury_r.funkcja;
-
-      przydzial_po_podwyzce := kocury_r.przydzial_myszy + (0.1 * kocury_r.przydzial_myszy);
-      IF przydzial_po_podwyzce > max_przydzial_dla_funkcji
-      THEN
-        UPDATE kocury
-        SET przydzial_myszy = max_przydzial_dla_funkcji
-        WHERE CURRENT OF kursor_kocury;
-      ELSE
-        UPDATE kocury
-        SET przydzial_myszy = przydzial_po_podwyzce
-        WHERE CURRENT OF kursor_kocury;
-      END IF;
-
-      liczba_zmian := liczba_zmian + 1;
-    END LOOP;
-    CLOSE kursor_kocury;
-  END LOOP;
-  dbms_output.PUT_LINE('Calk. przydzial w stadku ' || aktualny_przydzial_myszy || ' Zmian -  ' || liczba_zmian || '.');
-END;
-
-
-ROLLBACK;
-
----Zadanie 20 JAK TO WYPISAC!?:
+---Zadanie 20
 DECLARE
   numer_kocura NUMBER := 1;
 BEGIN
+  dbms_output.PUT_LINE('Nr Pseudonim      Zjada');
+  dbms_output.PUT_LINE('--------------------------');
   FOR kocur_obzartuch IN (
   SELECT *
   FROM (
@@ -160,39 +115,19 @@ BEGIN
   WHERE rownum <= 5
   )
   LOOP
-    dbms_output.PUT_LINE('Nr  pseudonim zjada');
-    dbms_output.PUT_LINE('--------------------------');
-    dbms_output.PUT_LINE(numer_kocura || '  ' || kocur_obzartuch.pseudo ||'     '|| kocur_obzartuch."Zjada");
+    dbms_output.PUT_LINE(numer_kocura || '  ' || RPAD(kocur_obzartuch.pseudo,10) ||'     '|| LPAD(kocur_obzartuch."Zjada",4));
     numer_kocura:= numer_kocura + 1;
   END LOOP;
 END;
 
-
+---ZADANIE 23
+CREATE OR REPLACE TRIGGER porzadek_w_papierach_band
+  BEFORE INSERT ON bandy
+  
 
 
 DECLARE
-  l_kotow       NUMBER;
-  l_z_dodatkami NUMBER;
+  liczba_przelozonych NUMBER:= &ile_przelozonych;
 BEGIN
-  SELECT COUNT(*)
-  INTO l_kotow
-  FROM kocury;
-  SELECT COUNT(*)
-  INTO l_z_dodatkami
-  FROM kocury
-  WHERE myszy_extra IS NOT NULL;
 
-
-  dbms_output.PUT_LINE('*' || LPAD('*', 54, '*') || '*');
-  dbms_output.PUT_LINE('*' || LPAD(' ', 54, ' ') || '*');
-  dbms_output.PUT_LINE('*  W stadku ' ||
-                       ROUND(l_z_dodatkami / l_kotow * 100, 2) ||
-                       '% kotow ma dodatkowy przydzial myszy  *');
-  dbms_output.PUT_LINE('*' || LPAD(' ', 54, ' ') || '*');
-  dbms_output.PUT_LINE('*' || LPAD('*', 54, '*') || '*');
-  EXCEPTION
-  WHEN ZERO_DIVIDE
-  THEN dbms_output.PUT_LINE('Brak kotow w stadzie!!!');
-  WHEN OTHERS
-  THEN dbms_output.PUT_LINE(SQLERRM);
 END;
