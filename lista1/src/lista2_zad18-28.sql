@@ -122,9 +122,59 @@ END;
 
 ---ZADANIE 21
 DECLARE
+  liczba_przelozonych NUMBER := &ile_przelozonych;
+  niepoprawna_lizcba_szefow EXCEPTION;
 BEGIN
+  IF liczba_przelozonych < 0
+  THEN
+    RAISE niepoprawna_lizcba_szefow;
+  END IF;
 
+    dbms_output.PUT(RPAD('Imie', 10));
+    FOR i IN 1..liczba_przelozonych LOOP
+      dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
+    END LOOP;
+    dbms_output.PUT_LINE('');
+    dbms_output.PUT('----------');
+    FOR i IN 1..liczba_przelozonych LOOP
+      dbms_output.PUT(' --- ----------');
+    END LOOP;
+    dbms_output.PUT_LINE('');
+
+    FOR kocur_lizus IN ( SELECT *
+                         FROM kocury
+                         WHERE funkcja IN ('KOT', 'MILUSIA'))
+    LOOP
+      dbms_output.PUT(RPAD(kocur_lizus.imie, 10));
+      wypisz_szefow(kocur_lizus, liczba_przelozonych);
+    END LOOP;
+
+  EXCEPTION
+  WHEN niepoprawna_lizcba_szefow THEN
+  dbms_output.PUT('Liczba przełożonych do wyświetlenia nie może być mniejsza od zera!');
 END;
+
+CREATE OR REPLACE PROCEDURE wypisz_szefow(kocur kocury%ROWTYPE, ilu_szefow NUMBER)
+IS
+  szef_kocura kocury%ROWTYPE;
+  BEGIN
+    IF kocur.szef IS NULL OR ilu_szefow = 0
+    THEN
+      IF (ilu_szefow = 0)
+      THEN
+        dbms_output.PUT_LINE('');
+        RETURN;
+      END IF;
+      dbms_output.PUT('  |  ' || RPAD(' ', 10));
+    ELSE
+      SELECT *
+      INTO szef_kocura
+      FROM kocury
+      WHERE kocury.pseudo = kocur.szef;
+      dbms_output.PUT('  |  ' || RPAD(szef_kocura.imie, 10));
+    END IF;
+    wypisz_szefow(szef_kocura, ilu_szefow - 1);
+  END;
 
 
 ---ZADANIE 23
@@ -147,112 +197,3 @@ WHERE nazwa = 'OSZOŁOMY';
 
 ROLLBACK;
 SET AUTOCOMMIT ON;
-
-
-DECLARE
-  liczba_przelozonych NUMBER := &ile_przelozonych;
-BEGIN
-  DBMS_OUTPUT.PUT(RPAD('Imie', 10));
-  FOR i IN 1..liczba_przelozonych LOOP
-    DBMS_OUTPUT.PUT('  |  ' || RPAD('Szef ' || i, 10));
-  END LOOP;
-  DBMS_OUTPUT.PUT_LINE('');
-  DBMS_OUTPUT.PUT('----------');
-  FOR i IN 1..liczba_przelozonych LOOP
-    DBMS_OUTPUT.PUT(' --- ----------');
-  END LOOP;
-  DBMS_OUTPUT.PUT_LINE('');
-
-  FOR kocur_lizus IN ( SELECT *
-                       FROM kocury
-                       WHERE funkcja IN ('KOT', 'MILUSIA'))
-  LOOP
-    DBMS_OUTPUT.PUT(RPAD(kocur_lizus.imie, 10));
-    wypisz_szefow(kocur_lizus,liczba_przelozonych);
-  END LOOP;
-END;
-
-CREATE OR REPLACE PROCEDURE wypisz_szefow(kocur kocury%ROWTYPE, ilu_szefow NUMBER)
-IS
-  szef_kocura kocury%ROWTYPE;
-  BEGIN
-    IF ilu_szefow = 0 OR kocur.szef IS NULL
-    THEN
-      dbms_output.PUT_LINE('');
-      RETURN;
-    ELSE
-      SELECT *
-      INTO szef_kocura
-      FROM kocury
-      WHERE kocury.pseudo = kocur.szef;
-      dbms_output.PUT('  |  ' || RPAD(szef_kocura.imie,10));
-      wypisz_szefow(szef_kocura, ilu_szefow - 1);
-    END IF;
-  END;
-
-DECLARE
-  kot kocury%ROWTYPE;
-BEGIN
-  SELECT *
-  INTO kot
-  FROM kocury
-  WHERE kocury.imie = 'LUCEK';
-  wypisz_szefow(kot, 3);
-END;
-
-
-DECLARE
-  curr_level NUMBER DEFAULT 1;
-  max_level  NUMBER DEFAULT 0;
-  n_level    NUMBER DEFAULT &n;
-  kot        kocury%ROWTYPE;
-BEGIN
-
-  SELECT MAX(level) - 1
-  INTO max_level
-  FROM kocury
-  CONNECT BY PRIOR pseudo = szef
-  START WITH szef IS NULL;
-
-  IF n_level > max_level
-  THEN
-    n_level := max_level;
-  END IF;
-
-  dbms_output.PUT(RPAD('Imie', 10));
-
-  FOR i IN 1..n_level LOOP
-    dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
-  END LOOP;
-
-  dbms_output.PUT_LINE(' ');
-  dbms_output.PUT('----------');
-  FOR i IN 1..n_level LOOP
-    dbms_output.PUT(' --- ----------');
-  END LOOP;
-  dbms_output.PUT_LINE(' ');
-
-  FOR rekord IN (
-  SELECT *
-  FROM kocury
-  WHERE funkcja IN ('KOT', 'MILUSIA')
-  ) LOOP
-    curr_level := 1;
-    dbms_output.PUT(RPAD(rekord.imie, 10));
-    kot := rekord;
-    WHILE curr_level <= n_level LOOP
-      IF kot.szef IS NULL
-      THEN
-        dbms_output.PUT('  |  ' || RPAD(' ', 10));
-      ELSE
-        SELECT *
-        INTO kot
-        FROM kocury
-        WHERE pseudo = kot.szef;
-        dbms_output.put('  |  ' || RPAD(kot.imie, 10));
-      END IF;
-      curr_level := curr_level + 1;
-    END LOOP;
-    dbms_output.PUT_LINE(' ');
-  END LOOP;
-END;

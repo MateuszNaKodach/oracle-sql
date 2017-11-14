@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##228135">
       <ObjectId>663</ObjectId>
-      <IntrospectionTimestamp>2017-11-15.00:28:02</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-11-15.00:49:47</IntrospectionTimestamp>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-11-15.00:28:01</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-11-15.00:49:46</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -698,7 +698,7 @@
       <ObjectId>301579</ObjectId>
       <RoutineKind>procedure</RoutineKind>
       <CreatedTimestamp>2017-11-15.00:25:19</CreatedTimestamp>
-      <ModifiedTimestamp>2017-11-15.00:28:01</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-11-15.00:49:46</ModifiedTimestamp>
     </routine>
     <column id="227" parent="221" name="NR_BANDY">
       <Position>1</Position>
@@ -995,25 +995,28 @@ IMIE_WROGA</ColNames>
     <argument id="279" parent="226" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="280" parent="226" name="PSEUDO">
+    <argument id="280" parent="226" name="ILU_SZEFOW">
+      <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="281" parent="226" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="281" parent="226" name="FUNKCJA">
+    <argument id="282" parent="226" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="282" parent="226" name="SZEF">
+    <argument id="283" parent="226" name="SZEF">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="283" parent="226" name="W_STADKU_OD">
+    <argument id="284" parent="226" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="284" parent="226" name="PRZYDZIAL_MYSZY">
+    <argument id="285" parent="226" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="285" parent="226" name="MYSZY_EXTRA">
+    <argument id="286" parent="226" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="286" parent="226" name="NR_BANDY">
+    <argument id="287" parent="226" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
   </database-model>
