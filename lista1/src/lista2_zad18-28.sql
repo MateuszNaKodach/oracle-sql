@@ -39,13 +39,13 @@ DECLARE
   max_przydzial_dla_funkcji  NUMBER := 0;
   przydzial_po_podwyzce      NUMBER := 0;
 BEGIN
-  DBMS_OUTPUT.PUT_LINE('Poczatek programu, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
+  dbms_output.PUT_LINE('Poczatek programu, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
 
   <<outer_loop>> LOOP
 
   OPEN kursor_kocury;
 
-  DBMS_OUTPUT.PUT_LINE('Petla zewnetrzna start, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
+  dbms_output.PUT_LINE('Petla zewnetrzna start, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
 <<inner_loop>>
   LOOP
 
@@ -53,8 +53,8 @@ BEGIN
     INTO aktualny_przydzial_myszy
     FROM kocury;
 
-    DBMS_OUTPUT.PUT_LINE('Petla wewnetrzna, liczba zmian: ' || liczba_zmian);
-    DBMS_OUTPUT.PUT_LINE('Petla wewnetrzna, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
+    dbms_output.PUT_LINE('Petla wewnetrzna, liczba zmian: ' || liczba_zmian);
+    dbms_output.PUT_LINE('Petla wewnetrzna, aktualny przydzial myszy: ' || aktualny_przydzial_myszy);
 
     FETCH kursor_kocury INTO kocury_r;
 
@@ -72,8 +72,8 @@ BEGIN
 
     przydzial_po_podwyzce := kocury_r.przydzial_myszy + (0.1 * kocury_r.przydzial_myszy);
 
-    DBMS_OUTPUT.PUT_LINE('Przydzial po podwyzce: ' || przydzial_po_podwyzce);
-    DBMS_OUTPUT.PUT_LINE('Max dla funkcji ' || kocury_r.funkcja || ' wynosi: '|| max_przydzial_dla_funkcji );
+    dbms_output.PUT_LINE('Przydzial po podwyzce: ' || przydzial_po_podwyzce);
+    dbms_output.PUT_LINE('Max dla funkcji ' || kocury_r.funkcja || ' wynosi: ' || max_przydzial_dla_funkcji);
 
     IF przydzial_po_podwyzce > max_przydzial_dla_funkcji
     THEN
@@ -96,7 +96,6 @@ END;
 
 ROLLBACK;
 
-
 ---Zadanie 20
 DECLARE
   numer_kocura NUMBER := 1;
@@ -115,116 +114,145 @@ BEGIN
   WHERE rownum <= 5
   )
   LOOP
-    dbms_output.PUT_LINE(numer_kocura || '  ' || RPAD(kocur_obzartuch.pseudo,10) ||'     '|| LPAD(kocur_obzartuch."Zjada",4));
-    numer_kocura:= numer_kocura + 1;
+    dbms_output.PUT_LINE(
+        numer_kocura || '  ' || RPAD(kocur_obzartuch.pseudo, 10) || '     ' || LPAD(kocur_obzartuch."Zjada", 4));
+    numer_kocura := numer_kocura + 1;
   END LOOP;
 END;
 
 ---ZADANIE 21
 DECLARE
-  BEGIN
+BEGIN
 
 END;
 
 
 ---ZADANIE 23
 CREATE OR REPLACE TRIGGER porzadek_w_papierach_band
-  BEFORE INSERT ON bandy
-  FOR EACH ROW
+BEFORE INSERT ON bandy
+FOR EACH ROW
   BEGIN
-    SELECT NVL(MAX(bandy.nr_bandy),0) + 1 INTO :new.nr_bandy FROM bandy;
+    SELECT NVL(MAX(bandy.nr_bandy), 0) + 1
+    INTO :new.nr_bandy
+    FROM bandy;
   END;
 
 SET AUTOCOMMIT OFF;
 
-INSERT INTO bandy VALUES (23,'OSZOŁOMY','KUCHNIA',NULL);
+INSERT INTO bandy VALUES (23, 'OSZOŁOMY', 'KUCHNIA', NULL);
 
-SELECT nr_bandy FROM Bandy WHERE nazwa='OSZOŁOMY';
+SELECT nr_bandy
+FROM bandy
+WHERE nazwa = 'OSZOŁOMY';
 
 ROLLBACK;
 SET AUTOCOMMIT ON;
 
 
-
-
-
 DECLARE
-  liczba_przelozonych NUMBER:= &ile_przelozonych;
+  liczba_przelozonych NUMBER := &ile_przelozonych;
 BEGIN
-  FOR kocur_lizus IN ( SELECT * FROM kocury WHERE funkcja IN ('KOT','MILUSIA'))
+  DBMS_OUTPUT.PUT(RPAD('Imie', 10));
+  FOR i IN 1..liczba_przelozonych LOOP
+    DBMS_OUTPUT.PUT('  |  ' || RPAD('Szef ' || i, 10));
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('');
+  DBMS_OUTPUT.PUT('----------');
+  FOR i IN 1..liczba_przelozonych LOOP
+    DBMS_OUTPUT.PUT(' --- ----------');
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('');
+
+  FOR kocur_lizus IN ( SELECT *
+                       FROM kocury
+                       WHERE funkcja IN ('KOT', 'MILUSIA'))
   LOOP
-    DBMS_OUTPUT.PUT_LINE('Kocur lizus: ' || kocur_lizus.imie);
+    DBMS_OUTPUT.PUT(RPAD(kocur_lizus.imie, 10));
+    wypisz_szefow(kocur_lizus,liczba_przelozonych);
   END LOOP;
 END;
 
-CREATE OR REPLACE PROCEDURE wypisz_szefow(kocur kocury%ROWTYPE)
-  IS
-    szef_kocura kocury%ROWTYPE;
+CREATE OR REPLACE PROCEDURE wypisz_szefow(kocur kocury%ROWTYPE, ilu_szefow NUMBER)
+IS
+  szef_kocura kocury%ROWTYPE;
   BEGIN
-    IF kocur.szef IS NULL THEN
+    IF ilu_szefow = 0 OR kocur.szef IS NULL
+    THEN
+      dbms_output.PUT_LINE('');
       RETURN;
-      ELSE
-        SELECT * INTO szef_kocura FROM kocury WHERE kocury.pseudo = kocur.szef;
-        DBMS_OUTPUT.PUT_LINE('Szef: ' || szef_kocura.imie);
-        wypisz_szefow(szef_kocura);
+    ELSE
+      SELECT *
+      INTO szef_kocura
+      FROM kocury
+      WHERE kocury.pseudo = kocur.szef;
+      dbms_output.PUT('  |  ' || RPAD(szef_kocura.imie,10));
+      wypisz_szefow(szef_kocura, ilu_szefow - 1);
     END IF;
   END;
 
-  DECLARE
-    kot kocury%ROWTYPE;
-  BEGIN
-    SELECT * INTO kot FROM kocury WHERE kocury.imie = 'LUCEK';
-    wypisz_szefow(kot);
-  END;
-
+DECLARE
+  kot kocury%ROWTYPE;
+BEGIN
+  SELECT *
+  INTO kot
+  FROM kocury
+  WHERE kocury.imie = 'LUCEK';
+  wypisz_szefow(kot, 3);
+END;
 
 
 DECLARE
   curr_level NUMBER DEFAULT 1;
-  max_level NUMBER DEFAULT 0;
-  n_level NUMBER DEFAULT &n;
-  kot kocury%ROWTYPE;
+  max_level  NUMBER DEFAULT 0;
+  n_level    NUMBER DEFAULT &n;
+  kot        kocury%ROWTYPE;
 BEGIN
 
-  SELECT
-    MAX(level)-1 INTO max_level
-  FROM Kocury
+  SELECT MAX(level) - 1
+  INTO max_level
+  FROM kocury
   CONNECT BY PRIOR pseudo = szef
   START WITH szef IS NULL;
 
-  IF n_level > max_level THEN
+  IF n_level > max_level
+  THEN
     n_level := max_level;
   END IF;
 
-  DBMS_OUTPUT.PUT(RPAD('Imie', 10));
+  dbms_output.PUT(RPAD('Imie', 10));
 
   FOR i IN 1..n_level LOOP
-    DBMS_OUTPUT.PUT('  |  ' || RPAD('Szef ' || i, 10));
+    dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
   END LOOP;
 
-  DBMS_OUTPUT.PUT_LINE(' ');
-  DBMS_OUTPUT.PUT('----------');
+  dbms_output.PUT_LINE(' ');
+  dbms_output.PUT('----------');
   FOR i IN 1..n_level LOOP
-    DBMS_OUTPUT.PUT(' --- ----------');
+    dbms_output.PUT(' --- ----------');
   END LOOP;
-  DBMS_OUTPUT.PUT_LINE(' ');
+  dbms_output.PUT_LINE(' ');
 
   FOR rekord IN (
-  SELECT * FROM Kocury
+  SELECT *
+  FROM kocury
   WHERE funkcja IN ('KOT', 'MILUSIA')
   ) LOOP
     curr_level := 1;
-    DBMS_OUTPUT.PUT(RPAD(rekord.imie, 10));
+    dbms_output.PUT(RPAD(rekord.imie, 10));
     kot := rekord;
     WHILE curr_level <= n_level LOOP
-      IF kot.szef IS NULL THEN
-        DBMS_OUTPUT.PUT('  |  ' || RPAD(' ', 10));
+      IF kot.szef IS NULL
+      THEN
+        dbms_output.PUT('  |  ' || RPAD(' ', 10));
       ELSE
-        SELECT * INTO kot FROM Kocury WHERE pseudo=kot.szef;
-        DBMS_OUTPUT.put('  |  ' || RPAD(kot.imie, 10));
+        SELECT *
+        INTO kot
+        FROM kocury
+        WHERE pseudo = kot.szef;
+        dbms_output.put('  |  ' || RPAD(kot.imie, 10));
       END IF;
       curr_level := curr_level + 1;
     END LOOP;
-    DBMS_OUTPUT.PUT_LINE(' ');
+    dbms_output.PUT_LINE(' ');
   END LOOP;
 END;
