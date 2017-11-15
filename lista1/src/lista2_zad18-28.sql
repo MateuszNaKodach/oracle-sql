@@ -25,6 +25,27 @@ SET AUTOCOMMIT OFF;
 
 DECLARE
   CURSOR kursor_kocury IS
+    SELECT *
+    FROM kocury
+    ORDER BY kocury.przydzial_myszy ASC
+    FOR UPDATE OF przydzial_myszy;
+  kocury_row kursor_kocury%ROWTYPE;
+BEGIN
+
+  OPEN kursor_kocury;
+  LOOP
+    FETCH kursor_kocury INTO kocury_row;
+    dbms_output.PUT_LINE('Aktualny kot ' || kocury_row.imie || '. Z przydzialem: ' || kocury_row.przydzial_myszy);
+    EXIT WHEN kursor_kocury%NOTFOUND;
+  END LOOP;
+  CLOSE kursor_kocury;
+
+END;
+
+ROLLBACK ;
+
+DECLARE
+  CURSOR kursor_kocury IS
     SELECT
       przydzial_myszy,
       funkcja
@@ -419,6 +440,8 @@ FOR EACH ROW
     IF NOT czy_w_przedziale_funkcji(:new.funkcja, :new.przydzial_myszy)
     THEN
 
+      :new.przydzial_myszy:=:old.przydzial_myszy;
+
       IF INSERTING
       THEN operacja := 'INSERTING';
       ELSE IF UPDATING
@@ -432,13 +455,15 @@ FOR EACH ROW
     END IF;
 
     EXCEPTION
-    WHEN niepoprawny_przydzial THEN dbms_output.put_line('Niepoprawny przydzial myszy dla funkcji: ' || :new.funkcja ||'!');
+    WHEN niepoprawny_przydzial THEN dbms_output.put_line(
+      'Niepoprawny przydzial myszy dla funkcji: ' || :new.funkcja || '!');
   END;
 
 
 UPDATE kocury
-SET przydzial_myszy = 105
+SET przydzial_myszy = 25
 WHERE pseudo = 'LOLA';
+COMMIT;
 
 INSERT INTO kocury VALUES ('KOTEK', 'M', 'POZERACZ', 'LOWCZY', 'LYSY', '2008-12-01', 200, NULL, 2);
 ROLLBACK;
@@ -446,6 +471,14 @@ ROLLBACK;
 
 SELECT *
 FROM myszowa_korupcja;
+
+
+
+SELECT *
+  FROM kocury;
+
+DELETE FROM kocury WHERE kocury.imie = 'KOTEK';
+COMMIT;
 
 SELECT *
 FROM user_objects
