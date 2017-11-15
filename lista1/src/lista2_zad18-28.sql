@@ -23,26 +23,66 @@ END;
 ---ZADANIE 19 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 SET AUTOCOMMIT OFF;
 
-DECLARE
+CREATE OR REPLACE FUNCTION calkowity_przydzial_myszy
+  RETURN NUMBER IS
+    result NUMBER:=0;
+  BEGIN
+    SELECT NVL(SUM(NVL(przydzial_myszy,0)),0) INTO result
+    FROM kocury;
+
+    RETURN result;
+  END;
+
+  BEGIN
+    dbms_output.put_line(calkowity_przydzial_myszy());
+  END;
+
+  DECLARE
   CURSOR kursor_kocury IS
     SELECT *
     FROM kocury
     ORDER BY kocury.przydzial_myszy ASC
     FOR UPDATE OF przydzial_myszy;
-  kocury_row kursor_kocury%ROWTYPE;
+  kocury_row                 kursor_kocury%ROWTYPE;
+  kocur_funkcja              funkcje%ROWTYPE;
+  myszy_po_podwyzce          NUMBER := 0;
+  maksymalny_przydzial_myszy NUMBER := 1050;
+  nr_zmiany NUMBER:=0;
 BEGIN
-
   OPEN kursor_kocury;
   LOOP
     FETCH kursor_kocury INTO kocury_row;
-    dbms_output.PUT_LINE('Aktualny kot ' || kocury_row.imie || '. Z przydzialem: ' || kocury_row.przydzial_myszy);
-    EXIT WHEN kursor_kocury%NOTFOUND;
+    EXIT WHEN kursor_kocury%NOTFOUND OR calkowity_przydzial_myszy()>maksymalny_przydzial_myszy;
+
+    SELECT *
+    INTO kocur_funkcja
+    FROM funkcje
+    WHERE funkcja = kocury_row.funkcja;
+
+    myszy_po_podwyzce := kocury_row.przydzial_myszy + (0.1 * kocury_row.przydzial_myszy);
+    IF myszy_po_podwyzce > kocur_funkcja.max_myszy
+    THEN
+      myszy_po_podwyzce := kocur_funkcja.max_myszy;
+    END IF;
+
+
+    UPDATE kocury
+    SET przydzial_myszy = myszy_po_podwyzce
+    WHERE CURRENT OF kursor_kocury;
+
+    nr_zmiany:= nr_zmiany +1;
   END LOOP;
-  CLOSE kursor_kocury;
+    dbms_output.PUT_LINE('Calk. przydzial w stadku : ' || calkowity_przydzial_myszy() || '  Zmian : ' || nr_zmiany);
+    CLOSE kursor_kocury;
 
 END;
 
-ROLLBACK ;
+ROLLBACK;
+
+SELECT *
+FROM kocury;
+
+
 
 DECLARE
   CURSOR kursor_kocury IS
@@ -440,7 +480,7 @@ FOR EACH ROW
     IF NOT czy_w_przedziale_funkcji(:new.funkcja, :new.przydzial_myszy)
     THEN
 
-      :new.przydzial_myszy:=:old.przydzial_myszy;
+      :new.przydzial_myszy := :old.przydzial_myszy;
 
       IF INSERTING
       THEN operacja := 'INSERTING';
@@ -473,11 +513,11 @@ SELECT *
 FROM myszowa_korupcja;
 
 
-
 SELECT *
-  FROM kocury;
+FROM kocury;
 
-DELETE FROM kocury WHERE kocury.imie = 'KOTEK';
+DELETE FROM kocury
+WHERE kocury.imie = 'KOTEK';
 COMMIT;
 
 SELECT *
