@@ -1,7 +1,7 @@
 SET serveroutput on;
 SET VERIFY OFF;
 
----ZADANIE 18:
+---ZADANIE 18 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ---Czemu nie działa '&fun' jak w przykladach? Musze wspiac np. 'MILUSIA'
 DECLARE
   szukana_funkcja    kocury.funkcja%TYPE := &fun;
@@ -20,7 +20,7 @@ BEGIN
   END IF;
 END;
 
----ZADANIE 19:
+---ZADANIE 19 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 SET AUTOCOMMIT OFF;
 
 DECLARE
@@ -96,7 +96,7 @@ END;
 
 ROLLBACK;
 
----Zadanie 20
+---Zadanie 20 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 DECLARE
   numer_kocura NUMBER := 1;
 BEGIN
@@ -120,34 +120,34 @@ BEGIN
   END LOOP;
 END;
 
----ZADANIE 21
+---ZADANIE 21 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 DECLARE
   liczba_przelozonych NUMBER := &ile_przelozonych;
-  niepoprawna_lizcba_szefow EXCEPTION;
+    niepoprawna_lizcba_szefow EXCEPTION;
 BEGIN
   IF liczba_przelozonych < 0
   THEN
     RAISE niepoprawna_lizcba_szefow;
   END IF;
 
-    dbms_output.PUT(RPAD('Imie', 10));
-    FOR i IN 1..liczba_przelozonych LOOP
-      dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
-    END LOOP;
-    dbms_output.PUT_LINE('');
-    dbms_output.PUT('----------');
-    FOR i IN 1..liczba_przelozonych LOOP
-      dbms_output.PUT(' --- ----------');
-    END LOOP;
-    dbms_output.PUT_LINE('');
+  dbms_output.PUT(RPAD('Imie', 10));
+  FOR i IN 1..liczba_przelozonych LOOP
+    dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
+  END LOOP;
+  dbms_output.PUT_LINE('');
+  dbms_output.PUT('----------');
+  FOR i IN 1..liczba_przelozonych LOOP
+    dbms_output.PUT(' --- ----------');
+  END LOOP;
+  dbms_output.PUT_LINE('');
 
-    FOR kocur_lizus IN ( SELECT *
-                         FROM kocury
-                         WHERE funkcja IN ('KOT', 'MILUSIA'))
-    LOOP
-      dbms_output.PUT(RPAD(kocur_lizus.imie, 10));
-      wypisz_szefow(kocur_lizus, liczba_przelozonych);
-    END LOOP;
+  FOR kocur_lizus IN ( SELECT *
+                       FROM kocury
+                       WHERE funkcja IN ('KOT', 'MILUSIA'))
+  LOOP
+    dbms_output.PUT(RPAD(kocur_lizus.imie, 10));
+    wypisz_szefow(kocur_lizus, liczba_przelozonych);
+  END LOOP;
 
   EXCEPTION
   WHEN niepoprawna_lizcba_szefow THEN
@@ -176,8 +176,46 @@ IS
     wypisz_szefow(szef_kocura, ilu_szefow - 1);
   END;
 
+---ZADANIE 22 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE PROCEDURE zadanie22(liczba_przelozonych NUMBER)
+IS
+    niepoprawna_lizcba_szefow EXCEPTION;
+  BEGIN
+    IF liczba_przelozonych < 0
+    THEN
+      RAISE niepoprawna_lizcba_szefow;
+    END IF;
 
----ZADANIE 23
+    dbms_output.PUT(RPAD('Imie', 10));
+    FOR i IN 1..liczba_przelozonych LOOP
+      dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
+    END LOOP;
+    dbms_output.PUT_LINE('');
+    dbms_output.PUT('----------');
+    FOR i IN 1..liczba_przelozonych LOOP
+      dbms_output.PUT(' --- ----------');
+    END LOOP;
+    dbms_output.PUT_LINE('');
+
+    FOR kocur_lizus IN ( SELECT *
+                         FROM kocury
+                         WHERE funkcja IN ('KOT', 'MILUSIA'))
+    LOOP
+      dbms_output.PUT(RPAD(kocur_lizus.imie, 10));
+      wypisz_szefow(kocur_lizus, liczba_przelozonych);
+    END LOOP;
+
+    EXCEPTION
+    WHEN niepoprawna_lizcba_szefow THEN
+    dbms_output.PUT('Liczba przełożonych do wyświetlenia nie może być mniejsza od zera!');
+  END;
+
+
+BEGIN
+  zadanie22(4);
+END;
+
+---ZADANIE 23 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 CREATE OR REPLACE TRIGGER porzadek_w_papierach_band
 BEFORE INSERT ON bandy
 FOR EACH ROW
@@ -197,3 +235,220 @@ WHERE nazwa = 'OSZOŁOMY';
 
 ROLLBACK;
 SET AUTOCOMMIT ON;
+
+---ZADANIE 26 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE OR REPLACE PACKAGE podatki AS
+
+  PROCEDURE zadanie22(liczba_przelozonych NUMBER);
+
+  FUNCTION podatek_kota(kot_pseudo kocury.pseudo%TYPE)
+    RETURN NUMBER;
+
+END podatki;
+
+CREATE OR REPLACE PACKAGE BODY podatki AS
+
+  ---Skopiowane z zadania 22
+  PROCEDURE zadanie22(liczba_przelozonych NUMBER)
+  IS
+      niepoprawna_lizcba_szefow EXCEPTION;
+    BEGIN
+      IF liczba_przelozonych < 0
+      THEN
+        RAISE niepoprawna_lizcba_szefow;
+      END IF;
+
+      dbms_output.PUT(RPAD('Imie', 10));
+      FOR i IN 1..liczba_przelozonych LOOP
+        dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
+      END LOOP;
+      dbms_output.PUT_LINE('');
+      dbms_output.PUT('----------');
+      FOR i IN 1..liczba_przelozonych LOOP
+        dbms_output.PUT(' --- ----------');
+      END LOOP;
+      dbms_output.PUT_LINE('');
+
+      FOR kocur_lizus IN ( SELECT *
+                           FROM kocury
+                           WHERE funkcja IN ('KOT', 'MILUSIA'))
+      LOOP
+        dbms_output.PUT(RPAD(kocur_lizus.imie, 10));
+        wypisz_szefow(kocur_lizus, liczba_przelozonych);
+      END LOOP;
+
+      EXCEPTION
+      WHEN niepoprawna_lizcba_szefow THEN
+      dbms_output.PUT('Liczba przełożonych do wyświetlenia nie może być mniejsza od zera!');
+    END;
+
+  ---Funkcje pomocniczne do obliczenia podatku:
+  FUNCTION calk_przydz_myszy_sufit(kot kocury%ROWTYPE, procent DECIMAL)
+    RETURN NUMBER IS
+    BEGIN
+      RETURN CEIL(procent * (NVL(kot.przydzial_myszy, 0) + NVL(kot.myszy_extra, 0)));
+    END;
+
+  FUNCTION posiada_podwladnych(kot kocury%ROWTYPE)
+    RETURN BOOLEAN IS
+    liczba_podwladnych NUMBER := 0;
+    BEGIN
+      SELECT NVL(COUNT(*), 0)
+      INTO liczba_podwladnych
+      FROM kocury
+      WHERE kocury.szef = kot.pseudo;
+
+      RETURN liczba_podwladnych > 0;
+    END;
+
+  FUNCTION jest_ugodowy(kot kocury%ROWTYPE)
+    RETURN BOOLEAN IS
+    liczba_wrogow NUMBER := 0;
+    BEGIN
+      SELECT NVL(COUNT(*), 0)
+      INTO liczba_wrogow
+      FROM wrogowie_kocurow
+      WHERE wrogowie_kocurow.pseudo = kot.pseudo;
+
+      RETURN liczba_wrogow = 0;
+    END;
+
+  FUNCTION przydzial_powyzej_sredniej(kot kocury%ROWTYPE)
+    RETURN BOOLEAN IS
+    sredni_przydzial NUMBER := 0;
+    BEGIN
+      SELECT AVG(NVL(przydzial_myszy, 0) + NVL(myszy_extra, 0))
+      INTO sredni_przydzial
+      FROM kocury;
+
+      RETURN (NVL(kot.przydzial_myszy, 0) + NVL(kot.myszy_extra, 0)) > sredni_przydzial;
+    END;
+  ---Koniec funkcji pomocniczych do obliczenia podatku
+
+
+  FUNCTION podatek_kota(kot_pseudo kocury.pseudo%TYPE)
+    RETURN NUMBER IS
+    kot     kocury%ROWTYPE;
+    podatek NUMBER := 0;
+    BEGIN
+      SELECT *
+      INTO kot
+      FROM kocury
+      WHERE kocury.pseudo = kot_pseudo;
+
+      ---Podatek TYGRYSA wynosi 0!
+      IF kot.pseudo = 'TYGRYS'
+      THEN
+        RETURN 0;
+      END IF;
+
+      ---Podatek 5% myszowych przychodów
+      podatek := podatek + calk_przydz_myszy_sufit(kot, 0.05);
+
+      IF NOT posiada_podwladnych(kot)
+      THEN
+        podatek := podatek + 2;
+      END IF;
+
+      IF jest_ugodowy(kot)
+      THEN
+        podatek := podatek + 1;
+      END IF;
+
+      IF przydzial_powyzej_sredniej(kot)
+      THEN
+        podatek := podatek + 3;
+      END IF;
+
+      RETURN podatek;
+    END;
+
+END podatki;
+
+---Podatki wszystkich kotów:
+SELECT
+  imie,
+  pseudo,
+  podatki.podatek_kota(pseudo) "Podatek"
+FROM kocury
+ORDER BY 3 DESC;
+
+---ZADANIE 28 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE myszowa_korupcja (
+  przestepca VARCHAR2(255) CONSTRAINT mkor_przestepca_nn NOT NULL,
+  data       DATE          CONSTRAINT mkor_data_nn NOT NULL,
+  imie_kota  VARCHAR2(15)  CONSTRAINT mkor_imiekota_nn NOT NULL,
+  operacja   VARCHAR2(9) CONSTRAINT mkor_operacja_check CHECK (operacja IN ('INSERTING', 'UPDATING'))
+);
+
+CREATE OR REPLACE FUNCTION czy_w_przedziale_funkcji(nazwa_funkcji VARCHAR2, nowy_przydzial NUMBER)
+  RETURN BOOLEAN
+IS
+  funkcja_kota funkcje%ROWTYPE;
+  BEGIN
+    SELECT *
+    INTO funkcja_kota
+    FROM funkcje
+    WHERE funkcje.funkcja = nazwa_funkcji;
+
+    RETURN nowy_przydzial BETWEEN funkcja_kota.min_myszy AND funkcja_kota.max_myszy;
+  END;
+
+---TEST FUNKCJI---
+/*DECLARE
+  czy_w_przedziale BOOLEAN;
+BEGIN
+  czy_w_przedziale := czy_w_przedziale_funkcji('MILUSIA', 25);
+  IF czy_w_przedziale
+  THEN
+    dbms_output.put_line('W przedziale');
+  ELSE
+    dbms_output.put_line('NIE w przedziale');
+  END IF;
+END;*/
+
+CREATE OR REPLACE TRIGGER monitorowanie_przydzialu
+BEFORE INSERT OR UPDATE OF przydzial_myszy
+  ON kocury
+FOR EACH ROW
+  DECLARE
+    operacja VARCHAR2(9) := '';
+      niepoprawny_przydzial EXCEPTION;
+    PRAGMA AUTONOMOUS_TRANSACTION;
+  BEGIN
+    IF NOT czy_w_przedziale_funkcji(:new.funkcja, :new.przydzial_myszy)
+    THEN
+
+      IF INSERTING
+      THEN operacja := 'INSERTING';
+      ELSE IF UPDATING
+      THEN operacja := 'UPDATING'; END IF;
+      END IF;
+
+      INSERT INTO myszowa_korupcja VALUES (USER, SYSDATE, :new.imie, operacja);
+      COMMIT;
+      RAISE niepoprawny_przydzial;
+
+    END IF;
+
+    EXCEPTION
+    WHEN niepoprawny_przydzial THEN dbms_output.put_line('Niepoprawny przydzial myszy dla funkcji: ' || :new.funkcja ||'!');
+  END;
+
+
+UPDATE kocury
+SET przydzial_myszy = 105
+WHERE pseudo = 'LOLA';
+
+INSERT INTO kocury VALUES ('KOTEK', 'M', 'POZERACZ', 'LOWCZY', 'LYSY', '2008-12-01', 200, NULL, 2);
+ROLLBACK;
+
+
+SELECT *
+FROM myszowa_korupcja;
+
+SELECT *
+FROM user_objects
+WHERE object_type = 'TRIGGER';
+
+DROP TRIGGER monitorowanie_przydzialu;
