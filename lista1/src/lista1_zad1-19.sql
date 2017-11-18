@@ -320,5 +320,3 @@ FROM (
 WHERE "RANK" <= 3;
 
 ROLLBACK;
-
-
