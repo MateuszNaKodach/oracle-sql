@@ -1,8 +1,8 @@
-DROP TYPE INCYDENT;
+DROP TYPE INCYDENT FORCE;
 DROP TYPE ELITA FORCE;
 DROP TYPE PLEBS FORCE;
 DROP TYPE KOCUR FORCE;
-DROP TYPE sluga_elity;
+DROP TYPE sluga_elity FORCE ;
 
 DROP TABLE objincydenty;
 DROP TABLE objsludzyelit;
@@ -91,7 +91,7 @@ CREATE OR REPLACE TYPE BODY ELITA AS
 END;
 
 CREATE OR REPLACE TYPE SLUGA_ELITY AS OBJECT (
-  pseudo_pana   VARCHAR2(15),
+  pan   REF kocur,
   sluga REF PLEBS
 );
 
@@ -103,7 +103,7 @@ CREATE OR REPLACE TYPE MYSZKI_NA_KONCIE AS OBJECT (
 );
 
 CREATE OR REPLACE TYPE INCYDENT AS OBJECT (
-  pseudo_kocura            VARCHAR2(15),
+  kot            REF kocur,
   imie_wroga     VARCHAR2(15),
   data_incydentu DATE,
   opis_incydentu VARCHAR2(50)
@@ -120,14 +120,18 @@ CONSTRAINT obj_kocury_szef szef SCOPE IS objkocury,
 );
 
 CREATE TABLE objincydenty OF incydent (
-CONSTRAINT obj_incydenty_pk PRIMARY KEY (pseudo_kocura,imie_wroga),
 CONSTRAINT obj_incydenty_data CHECK (data_incydentu IS NOT NULL ),
-data_incydentu DEFAULT (SYSDATE)
+data_incydentu DEFAULT (SYSDATE),
+CONSTRAINT obj_incydenty_kot kot SCOPE IS objkocury
 );
 
 CREATE TABLE objsludzyelit OF sluga_elity (
-CONSTRAINT obj_sludzyelit_pk PRIMARY KEY(pseudo_pana)
+CONSTRAINT obj_sludzyelit_pan pan SCOPE IS objkocury,
+CONSTRAINT obj_sludzyelit_sluga sluga SCOPE IS objkocury
 );
 
-
+DELETE FROM objkocury;
+COMMIT;
+INSERT INTO objkocury VALUES (elita('MRUCZEK', 'M', 'TYGRYS', NULL, '2002-01-01', 103, 33));
+INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(pseudo) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
 COMMIT;
