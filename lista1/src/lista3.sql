@@ -91,7 +91,7 @@ CREATE OR REPLACE TYPE BODY ELITA AS
 END;
 
 CREATE OR REPLACE TYPE SLUGA_ELITY AS OBJECT (
-  pan   REF kocur,
+  pan   REF elita,
   sluga REF PLEBS
 );
 
@@ -127,21 +127,36 @@ CONSTRAINT obj_incydenty_kot kot SCOPE IS objkocury
 
 CREATE TABLE objsludzyelit OF sluga_elity (
 CONSTRAINT obj_sludzyelit_pan pan SCOPE IS objkocury,
-CONSTRAINT obj_sludzyelit_sluga sluga SCOPE IS objkocury
+CONSTRAINT obj_sludzyelit_sluga sluga SCOPE IS objkocury,
+CONSTRAINT obj_sludzyelit_sluga_nn CHECK (sluga IS NOT NULL ),
+CONSTRAINT obj_sludzyelit_sluga_nn CHECK (pan IS NOT NULL )
 );
 
 DELETE FROM objkocury;
+
 COMMIT;
 INSERT INTO objkocury VALUES (elita('MRUCZEK', 'M', 'TYGRYS', NULL, '2002-01-01', 103, 33));
-NAPSIAC BLOK ROBIACY RAZ SELECTA!!!
 INSERT INTO objkocury VALUES (plebs('RUDA', 'D', 'MALA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-09-17', 22, 42));
-INSERT INTO objkocury VALUES (plebs('MICKA', 'D', 'LOLA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-10-14', 25, 47);
+INSERT INTO objkocury VALUES (plebs('MICKA', 'D', 'LOLA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-10-14', 25, 47));
 INSERT INTO objkocury VALUES (plebs('PUCEK', 'M', 'RAFA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-10-15', 65, NULL));
 
-INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
+---INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
 COMMIT;
 
 
+---FUNKCJA TREAT: http://psoug.org/definition/TREAT.htm
+INSERT INTO objsludzyelit VALUES (
+  (SELECT TREAT ((SELECT REF(p) FROM objkocury p WHERE p.pseudo = 'TYGRYS') AS REF elita) FROM dual),
+  (SELECT TREAT ((SELECT REF(p) FROM objkocury p WHERE p.pseudo = 'LOLA') AS REF plebs) FROM dual)
+);
+COMMIT;
+
+SELECT value(p)
+FROM objkocury p
+WHERE VALUE(p) IS OF (elita);
+COMMIT;
 
 
-SELECT * FROM objkocury WHERE szef = (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS')
+SELECT TREAT(value(k) AS elita)
+FROM objkocury k
+WHERE value(k) is of (elita);
