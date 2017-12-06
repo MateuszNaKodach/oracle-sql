@@ -133,5 +133,15 @@ CONSTRAINT obj_sludzyelit_sluga sluga SCOPE IS objkocury
 DELETE FROM objkocury;
 COMMIT;
 INSERT INTO objkocury VALUES (elita('MRUCZEK', 'M', 'TYGRYS', NULL, '2002-01-01', 103, 33));
-INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(pseudo) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
+NAPSIAC BLOK ROBIACY RAZ SELECTA!!!
+INSERT INTO objkocury VALUES (plebs('RUDA', 'D', 'MALA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-09-17', 22, 42));
+INSERT INTO objkocury VALUES (plebs('MICKA', 'D', 'LOLA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-10-14', 25, 47);
+INSERT INTO objkocury VALUES (plebs('PUCEK', 'M', 'RAFA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-10-15', 65, NULL));
+
+INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
 COMMIT;
+
+
+
+
+SELECT * FROM objkocury WHERE szef = (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS')
