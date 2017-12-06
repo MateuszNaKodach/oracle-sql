@@ -2,7 +2,7 @@ DROP TYPE INCYDENT FORCE;
 DROP TYPE ELITA FORCE;
 DROP TYPE PLEBS FORCE;
 DROP TYPE KOCUR FORCE;
-DROP TYPE sluga_elity FORCE ;
+DROP TYPE SLUGA_ELITY FORCE;
 
 DROP TABLE objincydenty;
 DROP TABLE objsludzyelit;
@@ -22,6 +22,14 @@ CREATE OR REPLACE TYPE KOCUR AS OBJECT (
 MAP MEMBER FUNCTION porownajPoPseudo
   RETURN VARCHAR2
 ) NOT FINAL NOT INSTANTIABLE;
+
+CREATE OR REPLACE TYPE BODY KOCUR AS
+     MAP MEMBER FUNCTION porownajPoPseudo RETURN VARCHAR2 IS
+     BEGIN
+      RETURN pseudo;
+     END;
+    END;
+
 
 CREATE OR REPLACE TYPE PLEBS UNDER KOCUR(
   CONSTRUCTOR FUNCTION PLEBS(imie            VARCHAR2,
@@ -91,8 +99,11 @@ CREATE OR REPLACE TYPE BODY ELITA AS
 END;
 
 CREATE OR REPLACE TYPE SLUGA_ELITY AS OBJECT (
-  pan   REF elita,
-  sluga REF PLEBS
+  nr_slugi NUMBER,
+  pan         REF ELITA,
+  sluga       REF PLEBS,
+  CONSTRUCTOR FUNCTION SLUGA_ELITY(pan REF ELITA, sluga REF PLEBS) RETURN SELF AS RESULT,
+MEMBER FUNCTION dajPseudoPana RETURN VARCHAR2
 );
 
 CREATE OR REPLACE TYPE MYSZKI_NA_KONCIE AS OBJECT (
@@ -103,7 +114,8 @@ CREATE OR REPLACE TYPE MYSZKI_NA_KONCIE AS OBJECT (
 );
 
 CREATE OR REPLACE TYPE INCYDENT AS OBJECT (
-  kot            REF kocur,
+  nr_incydentu    NUMBER,
+  kot            REF KOCUR,
   imie_wroga     VARCHAR2(15),
   data_incydentu DATE,
   opis_incydentu VARCHAR2(50)
@@ -112,51 +124,61 @@ CREATE OR REPLACE TYPE INCYDENT AS OBJECT (
 
 CREATE TABLE objkocury OF KOCUR (
 CONSTRAINT obj_kocury_pk PRIMARY KEY (pseudo),
-CONSTRAINT obj_kocury_im CHECK (imie IS NOT NULL ),
+CONSTRAINT obj_kocury_im CHECK (imie IS NOT NULL),
 CONSTRAINT obj_kocury_pl CHECK (plec IN ('M', 'D')),
 CONSTRAINT obj_kocury_status CHECK (status_spoleczny IN ('PLEBS', 'ELITA')),
-CONSTRAINT obj_kocury_szef szef SCOPE IS objkocury,
-  w_stadku_od DEFAULT (SYSDATE)
+CONSTRAINT obj_kocury_szef szef SCOPE IS objkocury,  w_stadku_od DEFAULT (SYSDATE)
 );
 
-CREATE TABLE objincydenty OF incydent (
-CONSTRAINT obj_incydenty_data CHECK (data_incydentu IS NOT NULL ),
-data_incydentu DEFAULT (SYSDATE),
+CREATE TABLE objincydenty OF INCYDENT (
+CONSTRAINT obj_incydenty_pk PRIMARY KEY (nr_incydentu),
+CONSTRAINT obj_incydenty_data CHECK (data_incydentu IS NOT NULL),
+  data_incydentu DEFAULT (SYSDATE),
 CONSTRAINT obj_incydenty_kot kot SCOPE IS objkocury
 );
 
-CREATE TABLE objsludzyelit OF sluga_elity (
+CREATE TABLE objsludzyelit OF SLUGA_ELITY (
+CONSTRAINT obj_sludzyelit_pk PRIMARY KEY (nr_slugi),
 CONSTRAINT obj_sludzyelit_pan pan SCOPE IS objkocury,
 CONSTRAINT obj_sludzyelit_sluga sluga SCOPE IS objkocury,
-CONSTRAINT obj_sludzyelit_sluga_nn CHECK (sluga IS NOT NULL ),
-CONSTRAINT obj_sludzyelit_sluga_nn CHECK (pan IS NOT NULL )
+CONSTRAINT obj_sludzyelit_sluga_nn CHECK (sluga IS NOT NULL),
+CONSTRAINT obj_sludzyelit_pan_nn CHECK (pan IS NOT NULL)
 );
-
-DELETE FROM objkocury;
 
 COMMIT;
 INSERT INTO objkocury VALUES (elita('MRUCZEK', 'M', 'TYGRYS', NULL, '2002-01-01', 103, 33));
-INSERT INTO objkocury VALUES (plebs('RUDA', 'D', 'MALA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-09-17', 22, 42));
-INSERT INTO objkocury VALUES (plebs('MICKA', 'D', 'LOLA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-10-14', 25, 47));
-INSERT INTO objkocury VALUES (plebs('PUCEK', 'M', 'RAFA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2006-10-15', 65, NULL));
+INSERT INTO objkocury VALUES (plebs('RUDA', 'D', 'MALA', (SELECT REF(k)
+                                                          FROM objkocury k
+                                                          WHERE k.pseudo = 'TYGRYS'), '2006-09-17', 22, 42));
+INSERT INTO objkocury VALUES (plebs('MICKA', 'D', 'LOLA', (SELECT REF(k)
+                                                           FROM objkocury k
+                                                           WHERE k.pseudo = 'TYGRYS'), '2009-10-14', 25, 47));
+INSERT INTO objkocury VALUES (plebs('PUCEK', 'M', 'RAFA', (SELECT REF(k)
+                                                           FROM objkocury k
+                                                           WHERE k.pseudo = 'TYGRYS'), '2006-10-15', 65, NULL));
 
 ---INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
 COMMIT;
 
-
 ---FUNKCJA TREAT: http://psoug.org/definition/TREAT.htm
 INSERT INTO objsludzyelit VALUES (
-  (SELECT TREAT ((SELECT REF(p) FROM objkocury p WHERE p.pseudo = 'TYGRYS') AS REF elita) FROM dual),
-  (SELECT TREAT ((SELECT REF(p) FROM objkocury p WHERE p.pseudo = 'LOLA') AS REF plebs) FROM dual)
+  (SELECT TREAT((SELECT REF(p)
+                 FROM objkocury p
+                 WHERE p.pseudo = 'TYGRYS') AS REF ELITA)
+   FROM dual),
+  (SELECT TREAT((SELECT REF(p)
+                 FROM objkocury p
+                 WHERE p.pseudo = 'LOLA') AS REF PLEBS)
+   FROM dual)
 );
 COMMIT;
 
 SELECT value(p)
 FROM objkocury p
-WHERE VALUE(p) IS OF (elita);
+WHERE VALUE(p) IS OF (ELITA);
 COMMIT;
 
 
-SELECT TREAT(value(k) AS elita)
+SELECT TREAT(value(k) AS ELITA)
 FROM objkocury k
-WHERE value(k) is of (elita);
+WHERE value(k) IS OF (ELITA);

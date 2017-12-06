@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##228135">
       <ObjectId>663</ObjectId>
-      <IntrospectionTimestamp>2017-12-06.12:36:47</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-12-06.14:13:33</IntrospectionTimestamp>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.12:26:30</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -688,148 +688,163 @@
       <ModifiedTimestamp>2017-11-15.14:36:25</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="225" parent="2" name="OBJKOCURY">
-      <ObjectId>307083</ObjectId>
+    <table id="225" parent="2" name="OBJINCYDENTY">
+      <ObjectId>307152</ObjectId>
       <RowTypeSchemaName>C##228135</RowTypeSchemaName>
-      <RowTypeObjectName>KOCUR</RowTypeObjectName>
-      <CreatedTimestamp>2017-12-06.12:10:49</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+      <RowTypeObjectName>INCYDENT</RowTypeObjectName>
+      <CreatedTimestamp>2017-12-06.14:13:30</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="226" parent="2" name="WROGOWIE">
+    <table id="226" parent="2" name="OBJKOCURY">
+      <ObjectId>307145</ObjectId>
+      <RowTypeSchemaName>C##228135</RowTypeSchemaName>
+      <RowTypeObjectName>KOCUR</RowTypeObjectName>
+      <CreatedTimestamp>2017-12-06.14:08:41</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="227" parent="2" name="WROGOWIE">
       <ObjectId>298134</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <table id="227" parent="2" name="WROGOWIE_KOCUROW">
+    <table id="228" parent="2" name="WROGOWIE_KOCUROW">
       <ObjectId>298141</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <package id="228" parent="2" name="PODATKI">
+    <table id="229" parent="2" name="OBJSLUDZYELIT"/>
+    <package id="230" parent="2" name="PODATKI">
       <ObjectId>301704</ObjectId>
       <CreatedTimestamp>2017-11-15.01:44:02</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:44:02</ModifiedTimestamp>
     </package>
-    <object-type id="229" parent="2" name="ELITA">
+    <object-type id="231" parent="2" name="ELITA">
       <ObjectId>306782</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:30:18</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:30:18</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:07:00</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:07:00</ModifiedTimestamp>
       <SuperSchemaName>C##228135</SuperSchemaName>
       <SuperObjectName>KOCUR</SuperObjectName>
       <Final>1</Final>
       <Instantiable>1</Instantiable>
     </object-type>
-    <object-type id="230" parent="2" name="INCYDENT">
+    <object-type id="232" parent="2" name="INCYDENT">
       <ObjectId>306784</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:32:26</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:32:26</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:08:38</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:10:31</ModifiedTimestamp>
       <Final>1</Final>
       <Instantiable>1</Instantiable>
     </object-type>
-    <object-type id="231" parent="2" name="KOCUR">
+    <object-type id="233" parent="2" name="KOCUR">
       <ObjectId>306690</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:30:12</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:30:12</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:06:45</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:06:45</ModifiedTimestamp>
     </object-type>
-    <object-type id="232" parent="2" name="MYSZKI_NA_KONCIE">
+    <object-type id="234" parent="2" name="MYSZKI_NA_KONCIE">
       <ObjectId>306835</ObjectId>
-      <Invalid>1</Invalid>
       <CreatedTimestamp>2017-12-06.00:51:12</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:26:23</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:34</ModifiedTimestamp>
       <Final>1</Final>
       <Instantiable>1</Instantiable>
     </object-type>
-    <object-type id="233" parent="2" name="PLEBS">
+    <object-type id="235" parent="2" name="PLEBS">
       <ObjectId>306731</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:30:12</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:30:12</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:06:51</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:06:51</ModifiedTimestamp>
       <SuperSchemaName>C##228135</SuperSchemaName>
       <SuperObjectName>KOCUR</SuperObjectName>
       <Final>1</Final>
       <Instantiable>1</Instantiable>
     </object-type>
-    <collection-type id="234" parent="2" name="SYSTPThe4kmzZT0S4cAcj0UllgQ==">
+    <object-type id="236" parent="2" name="SLUGA_ELITY">
+      <ObjectId>306834</ObjectId>
+      <CreatedTimestamp>2017-12-06.14:08:31</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:31</ModifiedTimestamp>
+      <Final>1</Final>
+      <Instantiable>1</Instantiable>
+    </object-type>
+    <collection-type id="237" parent="2" name="SYSTPThe4kmzZT0S4cAcj0UllgQ==">
       <ObjectId>307105</ObjectId>
       <CreatedTimestamp>2017-12-06.12:26:30</CreatedTimestamp>
       <ModifiedTimestamp>2017-12-06.12:26:30</ModifiedTimestamp>
       <ElementType>VARCHAR2(15)|0</ElementType>
     </collection-type>
-    <routine id="235" parent="2" name="CALKOWITY_PRZYDZIAL_MYSZY">
+    <routine id="238" parent="2" name="CALKOWITY_PRZYDZIAL_MYSZY">
       <ObjectId>301742</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-16.00:04:16</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-16.00:05:07</ModifiedTimestamp>
     </routine>
-    <routine id="236" parent="2" name="CALK_PRZYDZ_MYSZY_SUFIT">
+    <routine id="239" parent="2" name="CALK_PRZYDZ_MYSZY_SUFIT">
       <ObjectId>301590</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:16:43</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:39:02</ModifiedTimestamp>
     </routine>
-    <routine id="237" parent="2" name="CZY_W_PRZEDZIALE_FUNKCJI">
+    <routine id="240" parent="2" name="CZY_W_PRZEDZIALE_FUNKCJI">
       <ObjectId>301709</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.13:39:45</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.13:40:05</ModifiedTimestamp>
     </routine>
-    <routine id="238" parent="2" name="JEST_UGODOWY">
+    <routine id="241" parent="2" name="JEST_UGODOWY">
       <ObjectId>301702</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:39:02</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:39:02</ModifiedTimestamp>
     </routine>
-    <routine id="239" parent="2" name="PODATEK_KOTA">
+    <routine id="242" parent="2" name="PODATEK_KOTA">
       <ObjectId>301589</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:16:43</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:39:21</ModifiedTimestamp>
     </routine>
-    <routine id="240" parent="2" name="POSIADA_PODWLADNYCH">
+    <routine id="243" parent="2" name="POSIADA_PODWLADNYCH">
       <ObjectId>301591</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:22:21</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:39:02</ModifiedTimestamp>
     </routine>
-    <routine id="241" parent="2" name="PRZYDZIAL_POWYZEJ_SREDNIEJ">
+    <routine id="244" parent="2" name="PRZYDZIAL_POWYZEJ_SREDNIEJ">
       <ObjectId>301703</ObjectId>
       <RoutineKind>function</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:39:03</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:39:03</ModifiedTimestamp>
     </routine>
-    <routine id="242" parent="2" name="WYPISZ_SZEFOW">
+    <routine id="245" parent="2" name="WYPISZ_SZEFOW">
       <ObjectId>301579</ObjectId>
       <RoutineKind>procedure</RoutineKind>
       <CreatedTimestamp>2017-11-15.00:25:19</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.00:49:46</ModifiedTimestamp>
     </routine>
-    <routine id="243" parent="2" name="ZADANIE22">
+    <routine id="246" parent="2" name="ZADANIE22">
       <ObjectId>301588</ObjectId>
       <RoutineKind>procedure</RoutineKind>
       <CreatedTimestamp>2017-11-15.01:01:34</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:01:34</ModifiedTimestamp>
     </routine>
-    <column id="244" parent="221" name="NR_BANDY">
+    <column id="247" parent="221" name="NR_BANDY">
       <Position>1</Position>
       <DataType>NUMBER(2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="245" parent="221" name="NAZWA">
+    <column id="248" parent="221" name="NAZWA">
       <Position>2</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="246" parent="221" name="TEREN">
+    <column id="249" parent="221" name="TEREN">
       <Position>3</Position>
       <DataType>VARCHAR2(15)|0</DataType>
     </column>
-    <column id="247" parent="221" name="SZEF_BANDY">
+    <column id="250" parent="221" name="SZEF_BANDY">
       <Position>4</Position>
       <DataType>VARCHAR2(15)|0</DataType>
     </column>
-    <index id="248" parent="221" name="BAND_PR">
+    <index id="251" parent="221" name="BAND_PR">
       <ObjectId>298139</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -837,7 +852,7 @@
       <ColNames>NR_BANDY</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="249" parent="221" name="BAN_TEREN_UQ">
+    <index id="252" parent="221" name="BAN_TEREN_UQ">
       <ObjectId>298140</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -845,20 +860,20 @@
       <ColNames>TEREN</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="250" parent="221" name="BAND_PR">
+    <key id="253" parent="221" name="BAND_PR">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NR_BANDY</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>BAND_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="251" parent="221" name="BAN_TEREN_UQ">
+    <key id="254" parent="221" name="BAN_TEREN_UQ">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>TEREN</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>BAN_TEREN_UQ</UnderlyingIndexName>
     </key>
-    <foreign-key id="252" parent="221" name="BAND_SZEF_FK">
+    <foreign-key id="255" parent="221" name="BAND_SZEF_FK">
       <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <ColNames>SZEF_BANDY</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -866,25 +881,25 @@
       <RefKeyName>KOC_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <check id="253" parent="221" name="BAND_NAZWA_NN">
+    <check id="256" parent="221" name="BAND_NAZWA_NN">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NAZWA</ColNames>
       <Predicate>&quot;NAZWA&quot; IS NOT NULL</Predicate>
     </check>
-    <column id="254" parent="222" name="FUNKCJA">
+    <column id="257" parent="222" name="FUNKCJA">
       <Position>1</Position>
       <DataType>VARCHAR2(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="255" parent="222" name="MIN_MYSZY">
+    <column id="258" parent="222" name="MIN_MYSZY">
       <Position>2</Position>
       <DataType>NUMBER(3)|0</DataType>
     </column>
-    <column id="256" parent="222" name="MAX_MYSZY">
+    <column id="259" parent="222" name="MAX_MYSZY">
       <Position>3</Position>
       <DataType>NUMBER(3)|0</DataType>
     </column>
-    <index id="257" parent="222" name="FUN_PR">
+    <index id="260" parent="222" name="FUN_PR">
       <ObjectId>298133</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -892,69 +907,69 @@
       <ColNames>FUNKCJA</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="258" parent="222" name="FUN_PR">
+    <key id="261" parent="222" name="FUN_PR">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>FUNKCJA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>FUN_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <check id="259" parent="222" name="FUN_MINMYSZY_CH">
+    <check id="262" parent="222" name="FUN_MINMYSZY_CH">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MIN_MYSZY</ColNames>
       <Predicate>min_myszy&gt;5</Predicate>
     </check>
-    <check id="260" parent="222" name="FUN_MAXMYSZY_LOW_CH">
+    <check id="263" parent="222" name="FUN_MAXMYSZY_LOW_CH">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MAX_MYSZY
 MIN_MYSZY</ColNames>
       <Predicate>max_myszy&gt;min_myszy</Predicate>
     </check>
-    <check id="261" parent="222" name="FUN_MAXMYSZY_HIGH_CH">
+    <check id="264" parent="222" name="FUN_MAXMYSZY_HIGH_CH">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>MAX_MYSZY</ColNames>
       <Predicate>max_myszy&lt;200</Predicate>
     </check>
-    <column id="262" parent="223" name="IMIE">
+    <column id="265" parent="223" name="IMIE">
       <Position>1</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="263" parent="223" name="PLEC">
+    <column id="266" parent="223" name="PLEC">
       <Position>2</Position>
       <DataType>VARCHAR2(1)|0</DataType>
     </column>
-    <column id="264" parent="223" name="PSEUDO">
+    <column id="267" parent="223" name="PSEUDO">
       <Position>3</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="265" parent="223" name="FUNKCJA">
+    <column id="268" parent="223" name="FUNKCJA">
       <Position>4</Position>
       <DataType>VARCHAR2(10)|0</DataType>
     </column>
-    <column id="266" parent="223" name="SZEF">
+    <column id="269" parent="223" name="SZEF">
       <Position>5</Position>
       <DataType>VARCHAR2(15)|0</DataType>
     </column>
-    <column id="267" parent="223" name="W_STADKU_OD">
+    <column id="270" parent="223" name="W_STADKU_OD">
       <Position>6</Position>
       <DataType>DATE|0</DataType>
       <DefaultExpression>SYSDATE</DefaultExpression>
     </column>
-    <column id="268" parent="223" name="PRZYDZIAL_MYSZY">
+    <column id="271" parent="223" name="PRZYDZIAL_MYSZY">
       <Position>7</Position>
       <DataType>NUMBER(3)|0</DataType>
     </column>
-    <column id="269" parent="223" name="MYSZY_EXTRA">
+    <column id="272" parent="223" name="MYSZY_EXTRA">
       <Position>8</Position>
       <DataType>NUMBER(3)|0</DataType>
     </column>
-    <column id="270" parent="223" name="NR_BANDY">
+    <column id="273" parent="223" name="NR_BANDY">
       <Position>9</Position>
       <DataType>NUMBER(2)|0</DataType>
     </column>
-    <index id="271" parent="223" name="KOC_PR">
+    <index id="274" parent="223" name="KOC_PR">
       <ObjectId>298137</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -962,14 +977,14 @@ MIN_MYSZY</ColNames>
       <ColNames>PSEUDO</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="272" parent="223" name="KOC_PR">
+    <key id="275" parent="223" name="KOC_PR">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>KOC_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="273" parent="223" name="KOC_FUN_FK">
+    <foreign-key id="276" parent="223" name="KOC_FUN_FK">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>FUNKCJA</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -977,7 +992,7 @@ MIN_MYSZY</ColNames>
       <RefKeyName>FUN_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="274" parent="223" name="KOC_SZEF_FK">
+    <foreign-key id="277" parent="223" name="KOC_SZEF_FK">
       <ModifiedTimestamp>2017-10-27.01:36:05</ModifiedTimestamp>
       <ColNames>SZEF</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -985,7 +1000,7 @@ MIN_MYSZY</ColNames>
       <RefKeyName>KOC_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="275" parent="223" name="KOC_BAND_FK">
+    <foreign-key id="278" parent="223" name="KOC_BAND_FK">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>NR_BANDY</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -993,17 +1008,17 @@ MIN_MYSZY</ColNames>
       <RefKeyName>BAND_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <check id="276" parent="223" name="KOC_IMIE_NN">
+    <check id="279" parent="223" name="KOC_IMIE_NN">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE</ColNames>
       <Predicate>&quot;IMIE&quot; IS NOT NULL</Predicate>
     </check>
-    <check id="277" parent="223" name="KOC_PLEC_CH">
+    <check id="280" parent="223" name="KOC_PLEC_CH">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PLEC</ColNames>
       <Predicate>plec IN (&apos;D&apos;,&apos;M&apos;)</Predicate>
     </check>
-    <trigger id="278" parent="223" name="MONITOROWANIE_PRZYDZIALU">
+    <trigger id="281" parent="223" name="MONITOROWANIE_PRZYDZIALU">
       <ObjectId>301710</ObjectId>
       <CreatedTimestamp>2017-11-15.14:25:21</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.23:45:20</ModifiedTimestamp>
@@ -1011,144 +1026,208 @@ MIN_MYSZY</ColNames>
       <Turn>before-row</Turn>
       <ColNames>PRZYDZIAL_MYSZY</ColNames>
     </trigger>
-    <column id="279" parent="224" name="PRZESTEPCA">
+    <column id="282" parent="224" name="PRZESTEPCA">
       <Position>1</Position>
       <DataType>VARCHAR2(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="280" parent="224" name="DATA">
+    <column id="283" parent="224" name="DATA">
       <Position>2</Position>
       <DataType>DATE|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="281" parent="224" name="IMIE_KOTA">
+    <column id="284" parent="224" name="IMIE_KOTA">
       <Position>3</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="282" parent="224" name="OPERACJA">
+    <column id="285" parent="224" name="OPERACJA">
       <Position>4</Position>
       <DataType>VARCHAR2(9)|0</DataType>
     </column>
-    <check id="283" parent="224" name="MKOR_PRZESTEPCA_NN">
+    <check id="286" parent="224" name="MKOR_PRZESTEPCA_NN">
       <ModifiedTimestamp>2017-11-15.14:36:25</ModifiedTimestamp>
       <ColNames>PRZESTEPCA</ColNames>
       <Predicate>&quot;PRZESTEPCA&quot; IS NOT NULL</Predicate>
     </check>
-    <check id="284" parent="224" name="MKOR_DATA_NN">
+    <check id="287" parent="224" name="MKOR_DATA_NN">
       <ModifiedTimestamp>2017-11-15.14:36:25</ModifiedTimestamp>
       <ColNames>DATA</ColNames>
       <Predicate>&quot;DATA&quot; IS NOT NULL</Predicate>
     </check>
-    <check id="285" parent="224" name="MKOR_IMIEKOTA_NN">
+    <check id="288" parent="224" name="MKOR_IMIEKOTA_NN">
       <ModifiedTimestamp>2017-11-15.14:36:25</ModifiedTimestamp>
       <ColNames>IMIE_KOTA</ColNames>
       <Predicate>&quot;IMIE_KOTA&quot; IS NOT NULL</Predicate>
     </check>
-    <check id="286" parent="224" name="MKOR_OPERACJA_CHECK">
+    <check id="289" parent="224" name="MKOR_OPERACJA_CHECK">
       <ModifiedTimestamp>2017-11-15.14:36:25</ModifiedTimestamp>
       <ColNames>OPERACJA</ColNames>
       <Predicate>operacja IN(&apos;INSERTING&apos;,&apos;UPDATING&apos;)</Predicate>
     </check>
-    <column id="287" parent="225" name="IMIE">
+    <column id="290" parent="225" name="NR_INCYDENTU">
       <Position>1</Position>
-      <DataType>VARCHAR2(15)|0</DataType>
-    </column>
-    <column id="288" parent="225" name="PLEC">
-      <Position>2</Position>
-      <DataType>VARCHAR2(1)|0</DataType>
-    </column>
-    <column id="289" parent="225" name="PSEUDO">
-      <Position>3</Position>
-      <DataType>VARCHAR2(15)|0</DataType>
+      <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="290" parent="225" name="SZEF">
-      <Position>4</Position>
+    <column id="291" parent="225" name="KOT">
+      <Position>2</Position>
       <DataType>KOCUR|0</DataType>
     </column>
-    <column id="291" parent="225" name="W_STADKU_OD">
-      <Position>5</Position>
+    <column id="292" parent="225" name="IMIE_WROGA">
+      <Position>3</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <column id="293" parent="225" name="DATA_INCYDENTU">
+      <Position>4</Position>
       <DataType>DATE|0</DataType>
-      <DefaultExpression>(SYSDATE)&#xd;
-</DefaultExpression>
+      <DefaultExpression>(SYSDATE)</DefaultExpression>
     </column>
-    <column id="292" parent="225" name="PRZYDZIAL_MYSZY">
-      <Position>6</Position>
-      <DataType>NUMBER(3)|0</DataType>
+    <column id="294" parent="225" name="OPIS_INCYDENTU">
+      <Position>5</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
     </column>
-    <column id="293" parent="225" name="MYSZY_EXTRA">
-      <Position>7</Position>
-      <DataType>NUMBER(3)|0</DataType>
-    </column>
-    <column id="294" parent="225" name="STATUS_SPOLECZNY">
-      <Position>8</Position>
-      <DataType>VARCHAR2(5)|0</DataType>
-    </column>
-    <index id="295" parent="225" name="SYS_C00163446">
-      <ObjectId>307085</ObjectId>
+    <index id="295" parent="225" name="SYS_C00163505">
+      <ObjectId>307154</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2017-12-06.12:10:49</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:13:30</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>SYS_NC_OID$</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="296" parent="225" name="OBJ_KOCURY_PK">
-      <ObjectId>307084</ObjectId>
-      <CreatedTimestamp>2017-12-06.12:10:49</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+    <index id="296" parent="225" name="OBJ_INCYDENTY_PK">
+      <ObjectId>307153</ObjectId>
+      <CreatedTimestamp>2017-12-06.14:13:30</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>NR_INCYDENTU</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="297" parent="225" name="OBJ_INCYDENTY_PK">
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
+      <ColNames>NR_INCYDENTU</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>OBJ_INCYDENTY_PK</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="298" parent="225" name="SYS_C00163505">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
+      <ColNames>SYS_NC_OID$</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C00163505</UnderlyingIndexName>
+    </key>
+    <check id="299" parent="225" name="OBJ_INCYDENTY_DATA">
+      <ModifiedTimestamp>2017-12-06.14:13:30</ModifiedTimestamp>
+      <ColNames>DATA_INCYDENTU</ColNames>
+      <Predicate>data_incydentu IS NOT NULL</Predicate>
+    </check>
+    <column id="300" parent="226" name="IMIE">
+      <Position>1</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+    </column>
+    <column id="301" parent="226" name="PLEC">
+      <Position>2</Position>
+      <DataType>VARCHAR2(1)|0</DataType>
+    </column>
+    <column id="302" parent="226" name="PSEUDO">
+      <Position>3</Position>
+      <DataType>VARCHAR2(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="303" parent="226" name="SZEF">
+      <Position>4</Position>
+      <DataType>KOCUR|0</DataType>
+    </column>
+    <column id="304" parent="226" name="W_STADKU_OD">
+      <Position>5</Position>
+      <DataType>DATE|0</DataType>
+      <DefaultExpression>(SYSDATE&#xd;
+)&#xd;
+</DefaultExpression>
+    </column>
+    <column id="305" parent="226" name="PRZYDZIAL_MYSZY">
+      <Position>6</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <column id="306" parent="226" name="MYSZY_EXTRA">
+      <Position>7</Position>
+      <DataType>NUMBER(3)|0</DataType>
+    </column>
+    <column id="307" parent="226" name="STATUS_SPOLECZNY">
+      <Position>8</Position>
+      <DataType>VARCHAR2(5)|0</DataType>
+    </column>
+    <index id="308" parent="226" name="SYS_C00163498">
+      <ObjectId>307147</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2017-12-06.14:08:41</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
+      <TablespaceName>USERS</TablespaceName>
+      <ColNames>SYS_NC_OID$</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="309" parent="226" name="OBJ_KOCURY_PK">
+      <ObjectId>307146</ObjectId>
+      <CreatedTimestamp>2017-12-06.14:08:41</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>PSEUDO</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="297" parent="225" name="OBJ_KOCURY_PK">
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+    <key id="310" parent="226" name="OBJ_KOCURY_PK">
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <ColNames>PSEUDO</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>OBJ_KOCURY_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <key id="298" parent="225" name="SYS_C00163446">
+    <key id="311" parent="226" name="SYS_C00163498">
       <NameSurrogate>1</NameSurrogate>
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <ColNames>SYS_NC_OID$</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <UnderlyingIndexName>SYS_C00163446</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C00163498</UnderlyingIndexName>
     </key>
-    <check id="299" parent="225" name="OBJ_KOCURY_IM">
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+    <check id="312" parent="226" name="OBJ_KOCURY_IM">
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <ColNames>IMIE</ColNames>
-      <Predicate>imie IS NOT NULL </Predicate>
+      <Predicate>imie IS NOT NULL&#xd;
+</Predicate>
     </check>
-    <check id="300" parent="225" name="OBJ_KOCURY_PL">
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+    <check id="313" parent="226" name="OBJ_KOCURY_PL">
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <ColNames>PLEC</ColNames>
-      <Predicate>plec IN (&apos;M&apos;, &apos;D&apos;)</Predicate>
+      <Predicate>plec IN (&apos;M&apos;, &apos;D&apos;&#xd;
+)&#xd;
+</Predicate>
     </check>
-    <check id="301" parent="225" name="OBJ_KOCURY_STATUS">
-      <ModifiedTimestamp>2017-12-06.12:10:49</ModifiedTimestamp>
+    <check id="314" parent="226" name="OBJ_KOCURY_STATUS">
+      <ModifiedTimestamp>2017-12-06.14:08:41</ModifiedTimestamp>
       <ColNames>STATUS_SPOLECZNY</ColNames>
-      <Predicate>status_spoleczny IN (&apos;PLEBS&apos;, &apos;ELITA&apos;)</Predicate>
+      <Predicate>status_spoleczny IN (&apos;PLEBS&apos;, &apos;ELITA&apos;&#xd;
+)&#xd;
+</Predicate>
     </check>
-    <column id="302" parent="226" name="IMIE_WROGA">
+    <column id="315" parent="227" name="IMIE_WROGA">
       <Position>1</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="303" parent="226" name="STOPIEN_WROGOSCI">
+    <column id="316" parent="227" name="STOPIEN_WROGOSCI">
       <Position>2</Position>
       <DataType>NUMBER(2)|0</DataType>
     </column>
-    <column id="304" parent="226" name="GATUNEK">
+    <column id="317" parent="227" name="GATUNEK">
       <Position>3</Position>
       <DataType>VARCHAR2(15)|0</DataType>
     </column>
-    <column id="305" parent="226" name="LAPOWKA">
+    <column id="318" parent="227" name="LAPOWKA">
       <Position>4</Position>
       <DataType>VARCHAR2(20)|0</DataType>
     </column>
-    <index id="306" parent="226" name="WROG_PR">
+    <index id="319" parent="227" name="WROG_PR">
       <ObjectId>298135</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -1156,38 +1235,38 @@ MIN_MYSZY</ColNames>
       <ColNames>IMIE_WROGA</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="307" parent="226" name="WROG_PR">
+    <key id="320" parent="227" name="WROG_PR">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE_WROGA</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>WROG_PR</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <check id="308" parent="226" name="WROG_SW_CH">
+    <check id="321" parent="227" name="WROG_SW_CH">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>STOPIEN_WROGOSCI</ColNames>
       <Predicate>stopien_wrogosci BETWEEN 1 AND 10</Predicate>
     </check>
-    <column id="309" parent="227" name="PSEUDO">
+    <column id="322" parent="228" name="PSEUDO">
       <Position>1</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="310" parent="227" name="IMIE_WROGA">
+    <column id="323" parent="228" name="IMIE_WROGA">
       <Position>2</Position>
       <DataType>VARCHAR2(15)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="311" parent="227" name="DATA_INCYDENTU">
+    <column id="324" parent="228" name="DATA_INCYDENTU">
       <Position>3</Position>
       <DataType>DATE|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="312" parent="227" name="OPIS_INCYDENTU">
+    <column id="325" parent="228" name="OPIS_INCYDENTU">
       <Position>4</Position>
       <DataType>VARCHAR2(50)|0</DataType>
     </column>
-    <index id="313" parent="227" name="WROGKOC_PK">
+    <index id="326" parent="228" name="WROGKOC_PK">
       <ObjectId>298142</ObjectId>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
@@ -1196,7 +1275,7 @@ MIN_MYSZY</ColNames>
 IMIE_WROGA</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="314" parent="227" name="WROGKOC_PK">
+    <key id="327" parent="228" name="WROGKOC_PK">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO
 IMIE_WROGA</ColNames>
@@ -1204,7 +1283,7 @@ IMIE_WROGA</ColNames>
       <UnderlyingIndexName>WROGKOC_PK</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="315" parent="227" name="WROGKOC_PSEUD_FK">
+    <foreign-key id="328" parent="228" name="WROGKOC_PSEUD_FK">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>PSEUDO</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -1212,7 +1291,7 @@ IMIE_WROGA</ColNames>
       <RefKeyName>KOC_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="316" parent="227" name="WROGKOC_IMIE_FK">
+    <foreign-key id="329" parent="228" name="WROGKOC_IMIE_FK">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>IMIE_WROGA</ColNames>
       <RefSchemaName>C##228135</RefSchemaName>
@@ -1220,380 +1299,439 @@ IMIE_WROGA</ColNames>
       <RefKeyName>WROG_PR</RefKeyName>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <check id="317" parent="227" name="WROG_DATA_NN">
+    <check id="330" parent="228" name="WROG_DATA_NN">
       <ModifiedTimestamp>2017-10-27.01:12:15</ModifiedTimestamp>
       <ColNames>DATA_INCYDENTU</ColNames>
       <Predicate>&quot;DATA_INCYDENTU&quot; IS NOT NULL</Predicate>
     </check>
-    <body id="318" parent="228" name="PODATKI">
+    <check id="331" parent="229" name="OBJ_SLUDZYELIT_PAN_NN">
+      <ModifiedTimestamp>2017-12-06.14:13:49</ModifiedTimestamp>
+      <ColNames>PAN</ColNames>
+      <Predicate>pan IS NOT NULL</Predicate>
+    </check>
+    <check id="332" parent="229" name="OBJ_SLUDZYELIT_SLUGA_NN">
+      <ModifiedTimestamp>2017-12-06.14:13:49</ModifiedTimestamp>
+      <ColNames>SLUGA</ColNames>
+      <Predicate>sluga IS NOT NULL</Predicate>
+    </check>
+    <body id="333" parent="230" name="PODATKI">
       <ObjectId>301705</ObjectId>
       <CreatedTimestamp>2017-11-15.01:44:02</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:44:02</ModifiedTimestamp>
     </body>
-    <routine id="319" parent="228" name="ZADANIE22">
+    <routine id="334" parent="230" name="ZADANIE22">
       <RoutineKind>procedure</RoutineKind>
     </routine>
-    <routine id="320" parent="228" name="PODATEK_KOTA">
+    <routine id="335" parent="230" name="PODATEK_KOTA">
       <RoutineKind>function</RoutineKind>
     </routine>
-    <body id="321" parent="229" name="ELITA">
+    <body id="336" parent="231" name="ELITA">
       <ObjectId>306833</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:30:18</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:30:18</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:07:04</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:07:04</ModifiedTimestamp>
     </body>
-    <object-attribute id="322" parent="229" name="SLUGA">
+    <object-attribute id="337" parent="231" name="SLUGA">
       <Position>9</Position>
       <DataType>PLEBS|0</DataType>
     </object-attribute>
-    <routine id="323" parent="229" name="ELITA">
+    <routine id="338" parent="231" name="ELITA">
       <RoutineKind>function</RoutineKind>
     </routine>
-    <object-attribute id="324" parent="230" name="KOT">
+    <object-attribute id="339" parent="232" name="NR_INCYDENTU">
       <Position>1</Position>
+      <DataType>NUMBER|0</DataType>
+    </object-attribute>
+    <object-attribute id="340" parent="232" name="KOT">
+      <Position>2</Position>
       <DataType>KOCUR|0</DataType>
     </object-attribute>
-    <object-attribute id="325" parent="230" name="IMIE_WROGA">
-      <Position>2</Position>
+    <object-attribute id="341" parent="232" name="IMIE_WROGA">
+      <Position>3</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <object-attribute id="326" parent="230" name="DATA_INCYDENTU">
-      <Position>3</Position>
+    <object-attribute id="342" parent="232" name="DATA_INCYDENTU">
+      <Position>4</Position>
       <DataType>DATE|0</DataType>
     </object-attribute>
-    <object-attribute id="327" parent="230" name="OPIS_INCYDENTU">
-      <Position>4</Position>
+    <object-attribute id="343" parent="232" name="OPIS_INCYDENTU">
+      <Position>5</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <object-attribute id="328" parent="231" name="IMIE">
+    <body id="344" parent="233" name="KOCUR">
+      <ObjectId>307135</ObjectId>
+      <CreatedTimestamp>2017-12-06.14:06:48</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:06:48</ModifiedTimestamp>
+    </body>
+    <object-attribute id="345" parent="233" name="IMIE">
       <Position>1</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <object-attribute id="329" parent="231" name="PLEC">
+    <object-attribute id="346" parent="233" name="PLEC">
       <Position>2</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <object-attribute id="330" parent="231" name="PSEUDO">
+    <object-attribute id="347" parent="233" name="PSEUDO">
       <Position>3</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <object-attribute id="331" parent="231" name="SZEF">
+    <object-attribute id="348" parent="233" name="SZEF">
       <Position>4</Position>
       <DataType>KOCUR|0</DataType>
     </object-attribute>
-    <object-attribute id="332" parent="231" name="W_STADKU_OD">
+    <object-attribute id="349" parent="233" name="W_STADKU_OD">
       <Position>5</Position>
       <DataType>DATE|0</DataType>
     </object-attribute>
-    <object-attribute id="333" parent="231" name="PRZYDZIAL_MYSZY">
+    <object-attribute id="350" parent="233" name="PRZYDZIAL_MYSZY">
       <Position>6</Position>
       <DataType>NUMBER(3)|0</DataType>
     </object-attribute>
-    <object-attribute id="334" parent="231" name="MYSZY_EXTRA">
+    <object-attribute id="351" parent="233" name="MYSZY_EXTRA">
       <Position>7</Position>
       <DataType>NUMBER(3)|0</DataType>
     </object-attribute>
-    <object-attribute id="335" parent="231" name="STATUS_SPOLECZNY">
+    <object-attribute id="352" parent="233" name="STATUS_SPOLECZNY">
       <Position>8</Position>
       <DataType>VARCHAR2|0</DataType>
     </object-attribute>
-    <routine id="336" parent="231" name="POROWNAJPOPSEUDO">
+    <routine id="353" parent="233" name="POROWNAJPOPSEUDO">
       <RoutineKind>function</RoutineKind>
     </routine>
-    <object-attribute id="337" parent="232" name="NR_WPLATY">
+    <object-attribute id="354" parent="234" name="NR_WPLATY">
       <Position>1</Position>
       <DataType>NUMBER|0</DataType>
     </object-attribute>
-    <object-attribute id="338" parent="232" name="WLASCICIEL">
+    <object-attribute id="355" parent="234" name="WLASCICIEL">
       <Position>2</Position>
       <DataType>ELITA|0</DataType>
     </object-attribute>
-    <object-attribute id="339" parent="232" name="DATA_WPLATY">
+    <object-attribute id="356" parent="234" name="DATA_WPLATY">
       <Position>3</Position>
       <DataType>DATE|0</DataType>
     </object-attribute>
-    <object-attribute id="340" parent="232" name="DATA_WYPLATY">
+    <object-attribute id="357" parent="234" name="DATA_WYPLATY">
       <Position>4</Position>
       <DataType>DATE|0</DataType>
     </object-attribute>
-    <body id="341" parent="233" name="PLEBS">
+    <body id="358" parent="235" name="PLEBS">
       <ObjectId>306801</ObjectId>
-      <CreatedTimestamp>2017-12-06.01:30:18</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-06.01:30:18</ModifiedTimestamp>
+      <CreatedTimestamp>2017-12-06.14:06:56</CreatedTimestamp>
+      <ModifiedTimestamp>2017-12-06.14:06:56</ModifiedTimestamp>
     </body>
-    <routine id="342" parent="233" name="PLEBS">
+    <routine id="359" parent="235" name="PLEBS">
       <RoutineKind>function</RoutineKind>
     </routine>
-    <argument id="343" parent="235">
+    <object-attribute id="360" parent="236" name="NR_SLUGI">
+      <Position>1</Position>
+      <DataType>NUMBER|0</DataType>
+    </object-attribute>
+    <object-attribute id="361" parent="236" name="PAN">
+      <Position>2</Position>
+      <DataType>ELITA|0</DataType>
+    </object-attribute>
+    <object-attribute id="362" parent="236" name="SLUGA">
+      <Position>3</Position>
+      <DataType>PLEBS|0</DataType>
+    </object-attribute>
+    <routine id="363" parent="236" name="SLUGA_ELITY">
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <routine id="364" parent="236" name="DAJPSEUDOPANA">
+      <RoutineKind>function</RoutineKind>
+    </routine>
+    <argument id="365" parent="238">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="344" parent="236">
+    <argument id="366" parent="239">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="345" parent="236" name="KOT">
+    <argument id="367" parent="239" name="KOT">
       <DataType>PL/SQL RECORD|0</DataType>
     </argument>
-    <argument id="346" parent="236" name="IMIE">
+    <argument id="368" parent="239" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="347" parent="236" name="PLEC">
+    <argument id="369" parent="239" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="348" parent="236" name="PROCENT">
+    <argument id="370" parent="239" name="PROCENT">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="349" parent="236" name="PSEUDO">
+    <argument id="371" parent="239" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="350" parent="236" name="FUNKCJA">
+    <argument id="372" parent="239" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="351" parent="236" name="SZEF">
+    <argument id="373" parent="239" name="SZEF">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="352" parent="236" name="W_STADKU_OD">
+    <argument id="374" parent="239" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="353" parent="236" name="PRZYDZIAL_MYSZY">
+    <argument id="375" parent="239" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="354" parent="236" name="MYSZY_EXTRA">
+    <argument id="376" parent="239" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="355" parent="236" name="NR_BANDY">
+    <argument id="377" parent="239" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="356" parent="237">
+    <argument id="378" parent="240">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="357" parent="237" name="NAZWA_FUNKCJI">
+    <argument id="379" parent="240" name="NAZWA_FUNKCJI">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="358" parent="237" name="NOWY_PRZYDZIAL">
+    <argument id="380" parent="240" name="NOWY_PRZYDZIAL">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="359" parent="238">
+    <argument id="381" parent="241">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="360" parent="238" name="KOT">
+    <argument id="382" parent="241" name="KOT">
       <DataType>PL/SQL RECORD|0</DataType>
     </argument>
-    <argument id="361" parent="238" name="IMIE">
+    <argument id="383" parent="241" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="362" parent="238" name="PLEC">
+    <argument id="384" parent="241" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="363" parent="238" name="PSEUDO">
+    <argument id="385" parent="241" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="364" parent="238" name="FUNKCJA">
+    <argument id="386" parent="241" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="365" parent="238" name="SZEF">
+    <argument id="387" parent="241" name="SZEF">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="366" parent="238" name="W_STADKU_OD">
+    <argument id="388" parent="241" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="367" parent="238" name="PRZYDZIAL_MYSZY">
+    <argument id="389" parent="241" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="368" parent="238" name="MYSZY_EXTRA">
+    <argument id="390" parent="241" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="369" parent="238" name="NR_BANDY">
+    <argument id="391" parent="241" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="370" parent="239">
+    <argument id="392" parent="242">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="371" parent="239" name="KOT_PSEUDO">
+    <argument id="393" parent="242" name="KOT_PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="372" parent="240">
-      <ArgumentDirection>R</ArgumentDirection>
-      <DataType>PL/SQL BOOLEAN|0</DataType>
-    </argument>
-    <argument id="373" parent="240" name="KOT">
-      <DataType>PL/SQL RECORD|0</DataType>
-    </argument>
-    <argument id="374" parent="240" name="IMIE">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="375" parent="240" name="PLEC">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="376" parent="240" name="PSEUDO">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="377" parent="240" name="FUNKCJA">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="378" parent="240" name="SZEF">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="379" parent="240" name="W_STADKU_OD">
-      <DataType>DATE|0</DataType>
-    </argument>
-    <argument id="380" parent="240" name="PRZYDZIAL_MYSZY">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="381" parent="240" name="MYSZY_EXTRA">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="382" parent="240" name="NR_BANDY">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="383" parent="241">
+    <argument id="394" parent="243">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="384" parent="241" name="KOT">
+    <argument id="395" parent="243" name="KOT">
       <DataType>PL/SQL RECORD|0</DataType>
     </argument>
-    <argument id="385" parent="241" name="IMIE">
+    <argument id="396" parent="243" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="386" parent="241" name="PLEC">
+    <argument id="397" parent="243" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="387" parent="241" name="PSEUDO">
+    <argument id="398" parent="243" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="388" parent="241" name="FUNKCJA">
+    <argument id="399" parent="243" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="389" parent="241" name="SZEF">
+    <argument id="400" parent="243" name="SZEF">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="390" parent="241" name="W_STADKU_OD">
+    <argument id="401" parent="243" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="391" parent="241" name="PRZYDZIAL_MYSZY">
+    <argument id="402" parent="243" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="392" parent="241" name="MYSZY_EXTRA">
+    <argument id="403" parent="243" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="393" parent="241" name="NR_BANDY">
+    <argument id="404" parent="243" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="394" parent="242" name="KOCUR">
+    <argument id="405" parent="244">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>PL/SQL BOOLEAN|0</DataType>
+    </argument>
+    <argument id="406" parent="244" name="KOT">
       <DataType>PL/SQL RECORD|0</DataType>
     </argument>
-    <argument id="395" parent="242" name="IMIE">
+    <argument id="407" parent="244" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="396" parent="242" name="PLEC">
+    <argument id="408" parent="244" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="397" parent="242" name="ILU_SZEFOW">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="398" parent="242" name="PSEUDO">
+    <argument id="409" parent="244" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="399" parent="242" name="FUNKCJA">
+    <argument id="410" parent="244" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="400" parent="242" name="SZEF">
+    <argument id="411" parent="244" name="SZEF">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="401" parent="242" name="W_STADKU_OD">
+    <argument id="412" parent="244" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="402" parent="242" name="PRZYDZIAL_MYSZY">
+    <argument id="413" parent="244" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="403" parent="242" name="MYSZY_EXTRA">
+    <argument id="414" parent="244" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="404" parent="242" name="NR_BANDY">
+    <argument id="415" parent="244" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="405" parent="243" name="LICZBA_PRZELOZONYCH">
+    <argument id="416" parent="245" name="KOCUR">
+      <DataType>PL/SQL RECORD|0</DataType>
+    </argument>
+    <argument id="417" parent="245" name="IMIE">
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="418" parent="245" name="PLEC">
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="419" parent="245" name="ILU_SZEFOW">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="406" parent="319" name="LICZBA_PRZELOZONYCH">
+    <argument id="420" parent="245" name="PSEUDO">
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="421" parent="245" name="FUNKCJA">
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="422" parent="245" name="SZEF">
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="423" parent="245" name="W_STADKU_OD">
+      <DataType>DATE|0</DataType>
+    </argument>
+    <argument id="424" parent="245" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="407" parent="320">
+    <argument id="425" parent="245" name="MYSZY_EXTRA">
+      <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="426" parent="245" name="NR_BANDY">
+      <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="427" parent="246" name="LICZBA_PRZELOZONYCH">
+      <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="428" parent="334" name="LICZBA_PRZELOZONYCH">
+      <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="429" parent="335">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="408" parent="320" name="KOT_PSEUDO">
+    <argument id="430" parent="335" name="KOT_PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="409" parent="323">
+    <argument id="431" parent="338">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>ELITA|0</DataType>
     </argument>
-    <argument id="410" parent="323" name="SELF">
+    <argument id="432" parent="338" name="SELF">
       <ArgumentDirection>M</ArgumentDirection>
       <DataType>ELITA|0</DataType>
     </argument>
-    <argument id="411" parent="323" name="IMIE">
+    <argument id="433" parent="338" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="412" parent="323" name="PLEC">
+    <argument id="434" parent="338" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="413" parent="323" name="PSEUDO">
+    <argument id="435" parent="338" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="414" parent="323" name="SZEF">
+    <argument id="436" parent="338" name="SZEF">
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="415" parent="323" name="W_STADKU_OD">
+    <argument id="437" parent="338" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="416" parent="323" name="PRZYDZIAL_MYSZY">
+    <argument id="438" parent="338" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="417" parent="323" name="MYSZY_EXTRA">
+    <argument id="439" parent="338" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="418" parent="336">
+    <argument id="440" parent="353">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="419" parent="336" name="SELF">
+    <argument id="441" parent="353" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="420" parent="342">
+    <argument id="442" parent="359">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PLEBS|0</DataType>
     </argument>
-    <argument id="421" parent="342" name="SELF">
+    <argument id="443" parent="359" name="SELF">
       <ArgumentDirection>M</ArgumentDirection>
       <DataType>PLEBS|0</DataType>
     </argument>
-    <argument id="422" parent="342" name="IMIE">
+    <argument id="444" parent="359" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="423" parent="342" name="PLEC">
+    <argument id="445" parent="359" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="424" parent="342" name="PSEUDO">
+    <argument id="446" parent="359" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="425" parent="342" name="SZEF">
+    <argument id="447" parent="359" name="SZEF">
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="426" parent="342" name="W_STADKU_OD">
+    <argument id="448" parent="359" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="427" parent="342" name="PRZYDZIAL_MYSZY">
+    <argument id="449" parent="359" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="428" parent="342" name="MYSZY_EXTRA">
+    <argument id="450" parent="359" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
+    </argument>
+    <argument id="451" parent="363">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>SLUGA_ELITY|0</DataType>
+    </argument>
+    <argument id="452" parent="363" name="SELF">
+      <ArgumentDirection>M</ArgumentDirection>
+      <DataType>SLUGA_ELITY|0</DataType>
+    </argument>
+    <argument id="453" parent="363" name="PAN">
+      <DataType>ELITA|0</DataType>
+    </argument>
+    <argument id="454" parent="363" name="SLUGA">
+      <DataType>PLEBS|0</DataType>
+    </argument>
+    <argument id="455" parent="364">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>VARCHAR2|0</DataType>
+    </argument>
+    <argument id="456" parent="364" name="SELF">
+      <ArgumentDirection>S</ArgumentDirection>
+      <DataType>SLUGA_ELITY|0</DataType>
     </argument>
   </database-model>
 </dataSource>
