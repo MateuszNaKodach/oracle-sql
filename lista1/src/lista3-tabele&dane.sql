@@ -1,6 +1,7 @@
 DROP TABLE objincydenty;
 DROP TABLE objsludzyelit;
 DROP TABLE objkocury;
+DROP TABLE objmyszowekonto FORCE;
 
 DROP TYPE INCYDENT FORCE;
 DROP TYPE ELITA FORCE;
@@ -15,6 +16,13 @@ CONSTRAINT obj_kocury_im CHECK (imie IS NOT NULL),
 CONSTRAINT obj_kocury_pl CHECK (plec IN ('M', 'D')),
 CONSTRAINT obj_kocury_status CHECK (status_spoleczny IN ('PLEBS', 'ELITA')),
 CONSTRAINT obj_kocury_szef szef SCOPE IS objkocury,  w_stadku_od DEFAULT (SYSDATE)
+);
+
+CREATE TABLE objmyszowekonto OF myszki_na_koncie (
+CONSTRAINT obj_myszowekonto_pk PRIMARY KEY (nr_wplaty),
+CONSTRAINT obj_myszowekonto_wl wlasciciel SCOPE IS objkocury,
+CONSTRAINT obj_wyplata_po_wpalcie_chck CHECK (data_wplaty<=data_wyplaty),
+  data_wplaty DEFAULT (SYSDATE)
 );
 
 CREATE TABLE objincydenty OF INCYDENT (
@@ -227,14 +235,50 @@ INSERT INTO objincydenty VALUES(18,(SELECT REF(k)
 COMMIT;
 
 
+---WYPELNIENIE TABELI objmyszowekonto-----------------------------------------------------------------------------------------
 
+INSERT INTO objmyszowekonto VALUES(1,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'TYGRYS') AS REF ELITA)FROM dual),'2017-01-01',NULL);
+INSERT INTO objmyszowekonto VALUES(2,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'TYGRYS') AS REF ELITA)FROM dual),'2017-01-02',NULL);
+INSERT INTO objmyszowekonto VALUES(3,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'TYGRYS') AS REF ELITA)FROM dual),'2017-01-03','2017-01-04');
+INSERT INTO objmyszowekonto VALUES(4,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'TYGRYS') AS REF ELITA)FROM dual),'2017-01-05',NULL);
+INSERT INTO objmyszowekonto VALUES(5,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-03-05',NULL);
+INSERT INTO objmyszowekonto VALUES(6,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-03-05','2017-03-06');
+INSERT INTO objmyszowekonto VALUES(7,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-03-07','2017-03-07');
+INSERT INTO objmyszowekonto VALUES(8,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LYSY') AS REF ELITA)FROM dual),'2017-03-08','2017-03-10');
+INSERT INTO objmyszowekonto VALUES(9,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LYSY') AS REF ELITA)FROM dual),'2017-03-12','2017-03-15');
+INSERT INTO objmyszowekonto VALUES(10,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LYSY') AS REF ELITA)FROM dual),'2017-03-18','2017-03-21');
+INSERT INTO objmyszowekonto VALUES(11,(SELECT TREAT((SELECT REF(p)
+                                                    FROM objkocury p
+                                                    WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-05-05','2017-05-05');
+INSERT INTO objmyszowekonto VALUES(12,(SELECT TREAT((SELECT REF(p)
+                                                     FROM objkocury p
+                                                     WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-05-12','2017-05-12');
+INSERT INTO objmyszowekonto VALUES(13,(SELECT TREAT((SELECT REF(p)
+                                                     FROM objkocury p
+                                                     WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-05-15','2017-05-15');
 
-
-
-
-
----INSERT INTO objkocury VALUES(plebs('BARI', 'M', 'RURA', (SELECT REF(k) FROM objkocury k WHERE k.pseudo='TYGRYS'), '2009-09-01', 56, NULL))
 COMMIT;
+
 
 
 SELECT value(p)
