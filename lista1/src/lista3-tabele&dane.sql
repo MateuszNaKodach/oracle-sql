@@ -276,7 +276,9 @@ INSERT INTO objmyszowekonto VALUES(12,(SELECT TREAT((SELECT REF(p)
 INSERT INTO objmyszowekonto VALUES(13,(SELECT TREAT((SELECT REF(p)
                                                      FROM objkocury p
                                                      WHERE p.pseudo = 'LOLA') AS REF ELITA)FROM dual),'2017-05-15','2017-05-15');
-
+INSERT INTO objmyszowekonto VALUES(14,(SELECT TREAT((SELECT REF(p)
+                                                     FROM objkocury p
+                                                     WHERE p.pseudo = 'LYSY') AS REF ELITA)FROM dual),'2017-03-18','2017-03-18');
 COMMIT;
 
 
