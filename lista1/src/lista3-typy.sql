@@ -9,17 +9,20 @@ DROP TYPE ELITA FORCE;
 DROP TYPE PLEBS FORCE;
 DROP TYPE KOCUR FORCE;
 DROP TYPE SLUGA_ELITY FORCE;
+DROP TYPE myszki_na_koncie FORCE;
 
 
 CREATE OR REPLACE TYPE KOCUR AS OBJECT (
   imie             VARCHAR2(15),
   plec             VARCHAR2(1),
   pseudo           VARCHAR2(15),
+  funkcja          VARCHAR2(10),
   szef             REF KOCUR,
   w_stadku_od      DATE,
   przydzial_myszy  NUMBER(3),
   myszy_extra      NUMBER(3),
   status_spoleczny VARCHAR2(5),
+  nr_bandy NUMBER(2),
 
 MAP MEMBER FUNCTION porownajPoPseudo
   RETURN VARCHAR2,
@@ -30,8 +33,11 @@ MEMBER FUNCTION dajSzefa
 MEMBER FUNCTION czyPlebs
   RETURN BOOLEAN,
 MEMBER FUNCTION czyElita
+  RETURN BOOLEAN,
+MEMBER FUNCTION czyDolaczylPrzed(data DATE)
   RETURN BOOLEAN
 ) NOT FINAL NOT INSTANTIABLE;
+
 
 CREATE OR REPLACE TYPE BODY KOCUR AS
   MAP MEMBER FUNCTION porownajPoPseudo
@@ -67,6 +73,11 @@ CREATE OR REPLACE TYPE BODY KOCUR AS
     BEGIN
       RETURN status_spoleczny = 'PLEBS';
     END;
+  MEMBER FUNCTION czyDolaczylPrzed(data DATE)
+    RETURN BOOLEAN IS
+    BEGIN
+      RETURN w_stadku_od < data;
+    END;
 END;
 
 
@@ -74,30 +85,36 @@ CREATE OR REPLACE TYPE PLEBS UNDER KOCUR(
   CONSTRUCTOR FUNCTION PLEBS(imie            VARCHAR2,
                              plec            VARCHAR2,
                              pseudo          VARCHAR2,
+                             funkcja          VARCHAR2,
                              szef            REF KOCUR,
                              w_stadku_od     DATE,
                              przydzial_myszy NUMBER,
-                             myszy_extra     NUMBER) RETURN SELF AS RESULT
+                             myszy_extra     NUMBER,
+    nr_bandy NUMBER) RETURN SELF AS RESULT
 );
 
 CREATE OR REPLACE TYPE BODY PLEBS AS
   CONSTRUCTOR FUNCTION PLEBS(imie            VARCHAR2,
                              plec            VARCHAR2,
                              pseudo          VARCHAR2,
+                             funkcja          VARCHAR2,
                              szef            REF KOCUR,
                              w_stadku_od     DATE,
                              przydzial_myszy NUMBER,
-                             myszy_extra     NUMBER)
+                             myszy_extra     NUMBER,
+    nr_bandy NUMBER)
   RETURN SELF AS RESULT
   AS
     BEGIN
       self.imie := imie;
       self.plec := plec;
       self.pseudo := pseudo;
+      self.funkcja := funkcja;
       self.szef := szef;
       self.w_stadku_od := w_stadku_od;
       self.przydzial_myszy := przydzial_myszy;
       self.myszy_extra := myszy_extra;
+      self.nr_bandy := nr_bandy;
       self.status_spoleczny := 'PLEBS';
       RETURN;
     END;
@@ -108,30 +125,36 @@ CREATE OR REPLACE TYPE ELITA UNDER KOCUR(
   CONSTRUCTOR FUNCTION ELITA(imie            VARCHAR2,
                              plec            VARCHAR2,
                              pseudo          VARCHAR2,
+                             funkcja          VARCHAR2,
                              szef            REF KOCUR,
                              w_stadku_od     DATE,
                              przydzial_myszy NUMBER,
-                             myszy_extra     NUMBER) RETURN SELF AS RESULT
+                             myszy_extra     NUMBER,
+    nr_bandy NUMBER) RETURN SELF AS RESULT
 );
 
 CREATE OR REPLACE TYPE BODY ELITA AS
   CONSTRUCTOR FUNCTION ELITA(imie            VARCHAR2,
                              plec            VARCHAR2,
                              pseudo          VARCHAR2,
+                             funkcja          VARCHAR2,
                              szef            REF KOCUR,
                              w_stadku_od     DATE,
                              przydzial_myszy NUMBER,
-                             myszy_extra     NUMBER)
+                             myszy_extra     NUMBER,
+    nr_bandy NUMBER)
   RETURN SELF AS RESULT
   AS
     BEGIN
       self.imie := imie;
       self.plec := plec;
       self.pseudo := pseudo;
+      self.funkcja := funkcja;
       self.szef := szef;
       self.w_stadku_od := w_stadku_od;
       self.przydzial_myszy := przydzial_myszy;
       self.myszy_extra := myszy_extra;
+      self.nr_bandy := nr_bandy;
       self.status_spoleczny := 'ELITA';
       RETURN;
     END;
