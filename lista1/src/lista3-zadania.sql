@@ -93,6 +93,7 @@ Daną wejściową ma być maksymalna liczba wyświetlanych przełożonych.
 
 DECLARE
   liczba_przelozonych NUMBER := &ile_przelozonych;
+  kot kocur;
     niepoprawna_lizcba_szefow EXCEPTION;
 BEGIN
   IF liczba_przelozonych < 0
@@ -115,8 +116,9 @@ BEGIN
                        FROM objkocury k
                        WHERE value(k).funkcja IN ('KOT', 'MILUSIA'))
   LOOP
-    dbms_output.PUT(RPAD(kocur_lizus.pseudo, 10));
-    wypisz_szefow(kocur_lizus.pseudo, liczba_przelozonych);
+    SELECT value(k) INTO kot FROM objkocury k WHERE k.pseudo = kocur_lizus.pseudo;
+    dbms_output.PUT(RPAD(kot.pseudo, 10));
+    wypisz_szefow_obj(kot, liczba_przelozonych);
   END LOOP;
 
   EXCEPTION
@@ -124,12 +126,10 @@ BEGIN
   dbms_output.PUT('Liczba przełożonych do wyświetlenia nie może być mniejsza od zera!');
 END;
 
-CREATE OR REPLACE PROCEDURE wypisz_szefow(pseudo VARCHAR2, ilu_szefow NUMBER)
+CREATE OR REPLACE PROCEDURE wypisz_szefow_obj(kot kocur, ilu_szefow NUMBER)
 IS
   szef_kocura kocur;
-  kot kocur;
   BEGIN
-    SELECT value(k) INTO kot FROM objkocury k WHERE value(k).pseudo = pseudo;
     IF kot.szef IS NULL OR ilu_szefow = 0
     THEN
       IF (ilu_szefow = 0)
@@ -143,7 +143,9 @@ IS
       INTO szef_kocura
       FROM objkocury k
       WHERE value(k).pseudo = DEREF(kot.szef).pseudo;
-      dbms_output.PUT('  |  ' || RPAD(DEREF(szef_kocura).imie, 10));
+      dbms_output.PUT('  |  ' || RPAD(szef_kocura.imie, 10));
     END IF;
-    wypisz_szefow(szef_kocura.pseudo, ilu_szefow - 1);
+    wypisz_szefow_obj(szef_kocura, ilu_szefow - 1);
   END;
+
+
