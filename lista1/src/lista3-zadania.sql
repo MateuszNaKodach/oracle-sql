@@ -85,6 +85,30 @@ HAVING AVG(NVL(value(k).przydzial_myszy, 0) + NVL(value(k).myszy_extra, 0)) > 50
 ORDER BY 6 ASC;
 
 
+---Zadanie 20 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+DECLARE
+  numer_kocura NUMBER := 1;
+BEGIN
+  dbms_output.PUT_LINE('Nr Pseudonim      Zjada');
+  dbms_output.PUT_LINE('--------------------------');
+  FOR kocur_obzartuch IN (
+  SELECT *
+  FROM (
+    SELECT
+      value(k).pseudo "pseudo",
+      value(k).przydzial_myszy + NVL(value(k).myszy_extra, 0) "Zjada"
+    FROM objkocury k
+    ORDER BY 2 DESC
+  )
+  WHERE rownum <= 5
+  )
+  LOOP
+    dbms_output.PUT_LINE(
+        numer_kocura || '  ' || RPAD(kocur_obzartuch."pseudo", 10) || '     ' || LPAD(kocur_obzartuch."Zjada", 4));
+    numer_kocura := numer_kocura + 1;
+  END LOOP;
+END;
+
 /*
 Zad. 21. Napisać blok, który zrealizuje zad. 9 w sposób uniwersalny
 (bez konieczności uwzględniania wiedzy o liczbie przełożonych kota usytuowanego najniżej w hierarchii).
@@ -147,5 +171,7 @@ IS
     END IF;
     wypisz_szefow_obj(szef_kocura, ilu_szefow - 1);
   END;
+
+
 
 
