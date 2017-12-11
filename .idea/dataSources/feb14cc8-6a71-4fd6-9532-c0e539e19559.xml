@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##228135">
       <ObjectId>663</ObjectId>
-      <IntrospectionTimestamp>2017-12-11.22:56:29</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-12-11.23:19:47</IntrospectionTimestamp>
       <CreatedTimestamp>2017-10-27.01:12:15</CreatedTimestamp>
-      <ModifiedTimestamp>2017-12-11.22:56:14</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-12-11.23:19:46</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -851,12 +851,14 @@
     <routine id="249" parent="2" name="WYPISZ_SZEFOW">
       <ObjectId>301579</ObjectId>
       <RoutineKind>procedure</RoutineKind>
+      <Invalid>1</Invalid>
       <CreatedTimestamp>2017-11-15.00:25:19</CreatedTimestamp>
-      <ModifiedTimestamp>2017-11-15.00:49:46</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-12-11.23:19:46</ModifiedTimestamp>
     </routine>
     <routine id="250" parent="2" name="ZADANIE22">
       <ObjectId>301588</ObjectId>
       <RoutineKind>procedure</RoutineKind>
+      <Invalid>1</Invalid>
       <CreatedTimestamp>2017-11-15.01:01:34</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:01:34</ModifiedTimestamp>
     </routine>
@@ -1459,6 +1461,7 @@ IMIE_WROGA</ColNames>
     </check>
     <body id="356" parent="231" name="PODATKI">
       <ObjectId>301705</ObjectId>
+      <Invalid>1</Invalid>
       <CreatedTimestamp>2017-11-15.01:44:02</CreatedTimestamp>
       <ModifiedTimestamp>2017-11-15.01:44:02</ModifiedTimestamp>
     </body>
@@ -1812,242 +1815,209 @@ IMIE_WROGA</ColNames>
     <argument id="458" parent="248" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="459" parent="249" name="KOCUR">
-      <DataType>PL/SQL RECORD|0</DataType>
-    </argument>
-    <argument id="460" parent="249" name="IMIE">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="461" parent="249" name="PLEC">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="462" parent="249" name="ILU_SZEFOW">
+    <argument id="459" parent="250" name="LICZBA_PRZELOZONYCH">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="463" parent="249" name="PSEUDO">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="464" parent="249" name="FUNKCJA">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="465" parent="249" name="SZEF">
-      <DataType>VARCHAR2|0</DataType>
-    </argument>
-    <argument id="466" parent="249" name="W_STADKU_OD">
-      <DataType>DATE|0</DataType>
-    </argument>
-    <argument id="467" parent="249" name="PRZYDZIAL_MYSZY">
+    <argument id="460" parent="357" name="LICZBA_PRZELOZONYCH">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="468" parent="249" name="MYSZY_EXTRA">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="469" parent="249" name="NR_BANDY">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="470" parent="250" name="LICZBA_PRZELOZONYCH">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="471" parent="357" name="LICZBA_PRZELOZONYCH">
-      <DataType>NUMBER|0</DataType>
-    </argument>
-    <argument id="472" parent="358">
+    <argument id="461" parent="358">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="473" parent="358" name="KOT_PSEUDO">
+    <argument id="462" parent="358" name="KOT_PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="474" parent="361">
+    <argument id="463" parent="361">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>ELITA|0</DataType>
     </argument>
-    <argument id="475" parent="361" name="SELF">
+    <argument id="464" parent="361" name="SELF">
       <ArgumentDirection>M</ArgumentDirection>
       <DataType>ELITA|0</DataType>
     </argument>
-    <argument id="476" parent="361" name="IMIE">
+    <argument id="465" parent="361" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="477" parent="361" name="PLEC">
+    <argument id="466" parent="361" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="478" parent="361" name="PSEUDO">
+    <argument id="467" parent="361" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="479" parent="361" name="FUNKCJA">
+    <argument id="468" parent="361" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="480" parent="361" name="SZEF">
+    <argument id="469" parent="361" name="SZEF">
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="481" parent="361" name="W_STADKU_OD">
+    <argument id="470" parent="361" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="482" parent="361" name="PRZYDZIAL_MYSZY">
+    <argument id="471" parent="361" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="483" parent="361" name="MYSZY_EXTRA">
+    <argument id="472" parent="361" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="484" parent="361" name="NR_BANDY">
+    <argument id="473" parent="361" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="485" parent="368">
+    <argument id="474" parent="368">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="486" parent="368" name="SELF">
+    <argument id="475" parent="368" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>INCYDENT|0</DataType>
     </argument>
-    <argument id="487" parent="369">
+    <argument id="476" parent="369">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="488" parent="369" name="SELF">
+    <argument id="477" parent="369" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>INCYDENT|0</DataType>
     </argument>
-    <argument id="489" parent="370">
+    <argument id="478" parent="370">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="490" parent="370" name="SELF">
+    <argument id="479" parent="370" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>INCYDENT|0</DataType>
     </argument>
-    <argument id="491" parent="371">
+    <argument id="480" parent="371">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="492" parent="371" name="SELF">
+    <argument id="481" parent="371" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>INCYDENT|0</DataType>
     </argument>
-    <argument id="493" parent="383">
+    <argument id="482" parent="383">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="494" parent="383" name="SELF">
+    <argument id="483" parent="383" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="495" parent="384">
+    <argument id="484" parent="384">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="496" parent="384" name="SELF">
+    <argument id="485" parent="384" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="497" parent="385">
+    <argument id="486" parent="385">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="498" parent="385" name="SELF">
+    <argument id="487" parent="385" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="499" parent="386">
+    <argument id="488" parent="386">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="500" parent="386" name="SELF">
+    <argument id="489" parent="386" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="501" parent="387">
+    <argument id="490" parent="387">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="502" parent="387" name="SELF">
+    <argument id="491" parent="387" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="503" parent="388">
+    <argument id="492" parent="388">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="504" parent="388" name="SELF">
+    <argument id="493" parent="388" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="505" parent="388" name="DATA">
+    <argument id="494" parent="388" name="DATA">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="506" parent="394">
+    <argument id="495" parent="394">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="507" parent="394" name="SELF">
+    <argument id="496" parent="394" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>MYSZKI_NA_KONCIE|0</DataType>
     </argument>
-    <argument id="508" parent="395">
+    <argument id="497" parent="395">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="509" parent="395" name="SELF">
+    <argument id="498" parent="395" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>MYSZKI_NA_KONCIE|0</DataType>
     </argument>
-    <argument id="510" parent="396">
+    <argument id="499" parent="396">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PL/SQL BOOLEAN|0</DataType>
     </argument>
-    <argument id="511" parent="396" name="SELF">
+    <argument id="500" parent="396" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>MYSZKI_NA_KONCIE|0</DataType>
     </argument>
-    <argument id="512" parent="398">
+    <argument id="501" parent="398">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>PLEBS|0</DataType>
     </argument>
-    <argument id="513" parent="398" name="SELF">
+    <argument id="502" parent="398" name="SELF">
       <ArgumentDirection>M</ArgumentDirection>
       <DataType>PLEBS|0</DataType>
     </argument>
-    <argument id="514" parent="398" name="IMIE">
+    <argument id="503" parent="398" name="IMIE">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="515" parent="398" name="PLEC">
+    <argument id="504" parent="398" name="PLEC">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="516" parent="398" name="PSEUDO">
+    <argument id="505" parent="398" name="PSEUDO">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="517" parent="398" name="FUNKCJA">
+    <argument id="506" parent="398" name="FUNKCJA">
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="518" parent="398" name="SZEF">
+    <argument id="507" parent="398" name="SZEF">
       <DataType>KOCUR|0</DataType>
     </argument>
-    <argument id="519" parent="398" name="W_STADKU_OD">
+    <argument id="508" parent="398" name="W_STADKU_OD">
       <DataType>DATE|0</DataType>
     </argument>
-    <argument id="520" parent="398" name="PRZYDZIAL_MYSZY">
+    <argument id="509" parent="398" name="PRZYDZIAL_MYSZY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="521" parent="398" name="MYSZY_EXTRA">
+    <argument id="510" parent="398" name="MYSZY_EXTRA">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="522" parent="398" name="NR_BANDY">
+    <argument id="511" parent="398" name="NR_BANDY">
       <DataType>NUMBER|0</DataType>
     </argument>
-    <argument id="523" parent="403">
+    <argument id="512" parent="403">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="524" parent="403" name="SELF">
+    <argument id="513" parent="403" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>SLUGA_ELITY|0</DataType>
     </argument>
-    <argument id="525" parent="404">
+    <argument id="514" parent="404">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>VARCHAR2|0</DataType>
     </argument>
-    <argument id="526" parent="404" name="SELF">
+    <argument id="515" parent="404" name="SELF">
       <ArgumentDirection>S</ArgumentDirection>
       <DataType>SLUGA_ELITY|0</DataType>
     </argument>

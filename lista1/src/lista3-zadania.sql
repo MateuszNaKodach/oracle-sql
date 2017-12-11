@@ -83,3 +83,67 @@ WHERE value(k).funkcja != 'SZEFUNIO' AND value(k).plec = 'D'
 GROUP BY value(k).funkcja
 HAVING AVG(NVL(value(k).przydzial_myszy, 0) + NVL(value(k).myszy_extra, 0)) > 50
 ORDER BY 6 ASC;
+
+
+/*
+Zad. 21. Napisać blok, który zrealizuje zad. 9 w sposób uniwersalny
+(bez konieczności uwzględniania wiedzy o liczbie przełożonych kota usytuowanego najniżej w hierarchii).
+Daną wejściową ma być maksymalna liczba wyświetlanych przełożonych.
+ */
+
+DECLARE
+  liczba_przelozonych NUMBER := &ile_przelozonych;
+    niepoprawna_lizcba_szefow EXCEPTION;
+BEGIN
+  IF liczba_przelozonych < 0
+  THEN
+    RAISE niepoprawna_lizcba_szefow;
+  END IF;
+
+  dbms_output.PUT(RPAD('Imie', 10));
+  FOR i IN 1..liczba_przelozonych LOOP
+    dbms_output.PUT('  |  ' || RPAD('Szef ' || i, 10));
+  END LOOP;
+  dbms_output.PUT_LINE('');
+  dbms_output.PUT('----------');
+  FOR i IN 1..liczba_przelozonych LOOP
+    dbms_output.PUT(' --- ----------');
+  END LOOP;
+  dbms_output.PUT_LINE('');
+
+  FOR kocur_lizus IN ( SELECT *
+                       FROM objkocury k
+                       WHERE value(k).funkcja IN ('KOT', 'MILUSIA'))
+  LOOP
+    dbms_output.PUT(RPAD(kocur_lizus.pseudo, 10));
+    wypisz_szefow(kocur_lizus.pseudo, liczba_przelozonych);
+  END LOOP;
+
+  EXCEPTION
+  WHEN niepoprawna_lizcba_szefow THEN
+  dbms_output.PUT('Liczba przełożonych do wyświetlenia nie może być mniejsza od zera!');
+END;
+
+CREATE OR REPLACE PROCEDURE wypisz_szefow(pseudo VARCHAR2, ilu_szefow NUMBER)
+IS
+  szef_kocura kocur;
+  kot kocur;
+  BEGIN
+    SELECT value(k) INTO kot FROM objkocury k WHERE value(k).pseudo = pseudo;
+    IF kot.szef IS NULL OR ilu_szefow = 0
+    THEN
+      IF (ilu_szefow = 0)
+      THEN
+        dbms_output.PUT_LINE('');
+        RETURN;
+      END IF;
+      dbms_output.PUT('  |  ' || RPAD(' ', 10));
+    ELSE
+      SELECT value(k)
+      INTO szef_kocura
+      FROM objkocury k
+      WHERE value(k).pseudo = DEREF(kot.szef).pseudo;
+      dbms_output.PUT('  |  ' || RPAD(DEREF(szef_kocura).imie, 10));
+    END IF;
+    wypisz_szefow(szef_kocura.pseudo, ilu_szefow - 1);
+  END;
