@@ -1,6 +1,6 @@
 SET serveroutput on;
 SET VERIFY OFF;
-
+---CALA 2 lista bez gwiazdek!!!---
 ---ZADANIE 18 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ---Czemu nie działa '&fun' jak w przykladach? Musze wspiac np. 'MILUSIA'
 DECLARE
@@ -41,35 +41,33 @@ END;
 DECLARE
   CURSOR kursor_kocury IS
     SELECT *
-    FROM kocury
+    FROM kocury, funkcje
     ORDER BY kocury.przydzial_myszy ASC
     FOR UPDATE OF przydzial_myszy;
   kocury_row                 kursor_kocury%ROWTYPE;
-  kocur_funkcja              funkcje%ROWTYPE;
   myszy_po_podwyzce          NUMBER := 0;
   maksymalny_przydzial_myszy NUMBER := 1050;
   nr_zmiany                  NUMBER := 0;
+  calkowity_przydzial NUMBER:=0;
 BEGIN
+  calkowity_przydzial:=calkowity_przydzial_myszy();
   LOOP
-    EXIT WHEN calkowity_przydzial_myszy() > maksymalny_przydzial_myszy;
+    EXIT WHEN calkowity_przydzial > maksymalny_przydzial_myszy;
     OPEN kursor_kocury;
     LOOP
       FETCH kursor_kocury INTO kocury_row;
-      EXIT WHEN kursor_kocury%NOTFOUND OR calkowity_przydzial_myszy() > maksymalny_przydzial_myszy;
+      EXIT WHEN kursor_kocury%NOTFOUND OR calkowity_przydzial > maksymalny_przydzial_myszy;
 
-      SELECT *
-      INTO kocur_funkcja
-      FROM funkcje
-      WHERE funkcja = kocury_row.funkcja;
 
       myszy_po_podwyzce := kocury_row.przydzial_myszy + (0.1 * kocury_row.przydzial_myszy);
-      IF myszy_po_podwyzce > kocur_funkcja.max_myszy
+      IF myszy_po_podwyzce > kocury_row.max_myszy
       THEN
-        myszy_po_podwyzce := kocur_funkcja.max_myszy;
+        myszy_po_podwyzce := kocury_row.max_myszy;
       END IF;
 
       IF myszy_po_podwyzce != kocury_row.przydzial_myszy
       THEN
+        calkowity_przydzial:= calkowity_przydzial + (myszy_po_podwyzce-kocury_row.przydzial_myszy);
         UPDATE kocury
         SET przydzial_myszy = myszy_po_podwyzce
         WHERE CURRENT OF kursor_kocury;
